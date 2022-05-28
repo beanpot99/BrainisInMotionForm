@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/"/>
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: header"></nav>
+    <header id="clinicHeader">
+    <h1 id="clinicHeading">Initial Occupational Therapy Evaluation</h1>
+    </header>
+    <div class="clinicContainer">
+        <div class="child">
+            <table class="demoInfoLeft">
+                <tr>
+                    <td>Date of Eval:</td>
+                    <td><input type="date" value="da" name="dateOfEval"></td>
+                </tr>
+                <tr>
+                    <td>Patient Name:</td>
+                    <td><input type="text" value="" name="patientName"></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><input type="text" value="" name="address"></td>
+                </tr>
+                <tr>
+                    <td>Parent/Guardian:</td>
+                    <td><input type="text" value="" name="parent"></td>
+                </tr>
+                <tr>
+                    <td>Diagnosis:</td>
+                    <td><input type="text" value="" name="diagnosis"></td>
+                </tr>
+                <tr>
+                    <td>Therapist:</td>
+                    <td>
+                        <select name="therapistChoice">
+                            <option value="kristi" name="kristi">Kristi Warren</option>
+                            <option value="newTherapist" name="newTherapist">New therapist </option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="child">
+            <table class="demoInfoRight">
+                <tr>
+                    <td>DOB:</td>
+                    <td><input type="date" value="" name="DOB"></td>
+                </tr>
+                <tr>
+                    <td>Parent/Guardian:</td>
+                    <td><input type="text" value="" name="parent"></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="text" value="" name="phone"></td>
+                </tr>
+                <tr>
+                    <td>Physician:</td>
+                    <td><input type="text" value="" name="physician"></td>
+                </tr>
+                <tr>
+                    <td>Payer:</td>
+                    <td><input type="text" value="default value tbd" name="phone"></td>
+                </tr>
+                <tr>
+                    <td>NPI:</td>
+                    <td>1114051018</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</body>
+</html>

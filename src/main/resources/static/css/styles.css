@@ -1,0 +1,20 @@
+.clinicContainer{
+height: 50%;
+width: 80%;
+display:flex;
+align-items:center;
+justify-content:center;
+background-color:red;
+margin:auto;
+}
+#clinicHeader{
+display:flex;
+justify-content:center;
+}
+.child{
+padding: 20px;
+
+}
+.clinicHeading{
+
+}

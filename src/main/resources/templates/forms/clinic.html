@@ -6,9 +6,9 @@
     <header id="clinicHeader">
     <h1 id="clinicHeading">Initial Occupational Therapy Evaluation</h1>
     </header>
-    <div class="clinicContainer">
+    <div class="demographicContainer">
         <div class="child">
-            <table class="demoInfoLeft">
+            <table class="table table-striped">
                 <tr>
                     <td>Date of Eval:</td>
                     <td><input type="date" value="da" name="dateOfEval"></td>
@@ -41,7 +41,7 @@
             </table>
         </div>
         <div class="child">
-            <table class="demoInfoRight">
+            <table class="table table-striped">
                 <tr>
                     <td>DOB:</td>
                     <td><input type="date" value="" name="DOB"></td>
@@ -52,7 +52,7 @@
                 </tr>
                 <tr>
                     <td>Phone:</td>
-                    <td><input type="text" value="" name="phone"></td>
+                    <td><input type="text" value="(217)" name="phone"></td>
                 </tr>
                 <tr>
                     <td>Physician:</td>
@@ -60,7 +60,12 @@
                 </tr>
                 <tr>
                     <td>Payer:</td>
-                    <td><input type="text" value="default value tbd" name="phone"></td>
+                    <td>
+                        <select name="payer">
+                            <option value="insurance" name="insurance">Insurance</option>
+                            <option value="privatePay" name="privatePay">Private Pay </option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>NPI:</td>
@@ -69,7 +74,58 @@
             </table>
         </div>
     </div>
-
-
+    <div class="referralContainer">
+            <div class="child2">
+                <h5 id="referralHeader">Referral Info/Parent Concerns:</h5>
+            <textarea name="referralAndConcerns" id="textArea" class="form-control" rows="3"></textarea>
+            </div><br>
+    </div>
+    <div class="referralContainer">
+        <div class="child2">
+            <h5 id="medicalDevHistory">Medical and Developmental History:</h5>
+            <textarea name="medicalDevHistory" id="textArea" class="form-control" rows="3"></textarea>
+        </div>
+    </div>
+<div class="assessmentInfo">
+    <div class="child">
+        <table class="table table-striped">
+            <tr>
+                <td>Education Level:</td>
+                <td>
+                    <select name="edLevel">
+                        <option th:each="level : ${educationLevel}"
+                                th:value="${level}"
+                                th:text="${level.displayLevel}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Assessment Method:</td>
+                <td>
+                    <input type="checkbox"
+                           th:each="method : ${assessmentMethod}"
+                           th:value="${method}"
+                           th:text="${method.assessmentMethod}"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="child">
+        <table class="table table-striped">
+            <tr>
+                <td>Communication Status:</td>
+                <td>
+                    <select name="commStatus">
+                        <option th:each="level : ${communicationLevel}"
+                                th:value="${level}"
+                                th:text="${level.communicationLevel}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

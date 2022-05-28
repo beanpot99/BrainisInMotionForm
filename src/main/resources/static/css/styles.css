@@ -1,20 +1,50 @@
-.clinicContainer{
+.demographicContainer{
 height: 50%;
 width: 80%;
 display:flex;
 align-items:center;
 justify-content:center;
-background-color:red;
+border-bottom: 1px solid #a9a9a9;
 margin:auto;
+
 }
 #clinicHeader{
 display:flex;
 justify-content:center;
+margin-top:30px;
 }
 .child{
-padding: 20px;
+padding:20px;
+width:100%;
+}
+.nax-item{
+color:white;
+}
+.referralContainer{
+height: 50%;
+width: 80%;
+display:flex;
+align-items:flex-start;
+justify-content:center;
+margin:auto;
+border-bottom: 1px solid #a9a9a9;
 
 }
-.clinicHeading{
 
+.child2{
+padding:20px;
+width:100%;
+
+}
+#textArea{
+resize:none;
+}
+.assessmentInfo{
+height: 50%;
+width: 80%;
+display:flex;
+align-items:center;
+justify-content:center;
+border-bottom: 1px solid #a9a9a9;
+margin:auto;
 }

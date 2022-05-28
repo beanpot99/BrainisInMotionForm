@@ -1,5 +1,7 @@
 package com.brainsInMotion.brainsinmotionforms.controllers;
 
+import com.brainsInMotion.brainsinmotionforms.models.CommunicationStatus;
+import com.brainsInMotion.brainsinmotionforms.models.EducationLevel;
 import com.brainsInMotion.brainsinmotionforms.models.Therapist;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +19,8 @@ public class ClinicController {
 
     @GetMapping("clinic")
     public String displayClinicForm(Model model){
-
+    model.addAttribute("educationLevel", EducationLevel.values());
+    model.addAttribute("communicationLevel", CommunicationStatus.values());
         return "forms/clinic";
     }
     @PostMapping(value="clinic/{therapistName}")

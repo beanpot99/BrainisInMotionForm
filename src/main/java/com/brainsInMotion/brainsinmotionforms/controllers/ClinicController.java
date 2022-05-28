@@ -1,8 +1,7 @@
 package com.brainsInMotion.brainsinmotionforms.controllers;
 
-import com.brainsInMotion.brainsinmotionforms.models.CommunicationStatus;
-import com.brainsInMotion.brainsinmotionforms.models.EducationLevel;
-import com.brainsInMotion.brainsinmotionforms.models.Therapist;
+import com.brainsInMotion.brainsinmotionforms.models.*;
+import com.brainsInMotion.brainsinmotionforms.models.clinicEnums.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +20,10 @@ public class ClinicController {
     public String displayClinicForm(Model model){
     model.addAttribute("educationLevel", EducationLevel.values());
     model.addAttribute("communicationLevel", CommunicationStatus.values());
+    model.addAttribute("assessmentMethod", AssessmentMethod.values());
+    model.addAttribute("behaviorObservations", BehaviorObservations.values());
+    model.addAttribute("fineMotor", FineMotor.values());
+    model.addAttribute("strengthAndRangeOfMotion", StrengthRangeOfMotion.values());
         return "forms/clinic";
     }
     @PostMapping(value="clinic/{therapistName}")

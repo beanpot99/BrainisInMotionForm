@@ -1,4 +1,4 @@
-package com.brainsInMotion.brainsinmotionforms.models;
+package com.brainsInMotion.brainsinmotionforms.models.clinicEnums;
 
 public enum EducationLevel {
     LESSTHANELEMENTARY("<Elementary"),

@@ -3,10 +3,11 @@
 <head th:replace="fragments :: head"></head>
 <body>
 <nav th:replace="fragments :: header"></nav>
-    <header id="clinicHeader">
-    <h1 id="clinicHeading">Initial Occupational Therapy Evaluation</h1>
+<header th:replace="fragments :: logoHeader"></header>
+<header id="clinicHeader">
+    <h3 id="clinicHeading">Initial Occupational Therapy Evaluation</h3>
     </header>
-    <div class="demographicContainer">
+    <div class="sideBySideTables">
         <div class="child">
             <table class="table table-striped">
                 <tr>
@@ -74,39 +75,58 @@
             </table>
         </div>
     </div>
-    <div class="referralContainer">
+    <div class="sideBySideTables">
             <div class="child2">
                 <h5 id="referralHeader">Referral Info/Parent Concerns:</h5>
             <textarea name="referralAndConcerns" id="textArea" class="form-control" rows="3"></textarea>
             </div><br>
     </div>
-    <div class="referralContainer">
+    <div class="sideBySideTables">
         <div class="child2">
             <h5 id="medicalDevHistory">Medical and Developmental History:</h5>
             <textarea name="medicalDevHistory" id="textArea" class="form-control" rows="3"></textarea>
         </div>
     </div>
-<div class="assessmentInfo">
+<div class="sideBySideTables">
     <div class="child">
         <table class="table table-striped">
             <tr>
-                <td>Education Level:</td>
+                <td>Assessment Method:</td>
                 <td>
-                    <select name="edLevel">
-                        <option th:each="level : ${educationLevel}"
-                                th:value="${level}"
-                                th:text="${level.displayLevel}">
-                        </option>
-                    </select>
+                    <div id="checkBoxes">
+                    <div th:each="method : ${assessmentMethod}" >
+                    <input type="checkbox"
+                           th:value="${method}"
+                           th:text="${method.assessmentMethod}"/>
+                        <br>
+                    </div>
+                    </div>
                 </td>
             </tr>
             <tr>
-                <td>Assessment Method:</td>
+                <td>Behavioral Observations:</td>
                 <td>
-                    <input type="checkbox"
-                           th:each="method : ${assessmentMethod}"
-                           th:value="${method}"
-                           th:text="${method.assessmentMethod}"/>
+                    <div id="checkBoxes">
+                        <div th:each="behavior : ${behaviorObservations}" >
+                            <input type="checkbox"
+                                   th:value="${behavior}"
+                                   th:text="${behavior.behaviorObservations}"/>
+                            <br>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Fine Motor Skills:</td>
+                <td>
+                    <div id="checkBoxes">
+                        <div th:each="motor : ${fineMotor}" >
+                            <input type="checkbox"
+                                   th:value="${motor}"
+                                   th:text="${motor.fineMotor}"/>
+                            <br>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </table>
@@ -116,10 +136,32 @@
             <tr>
                 <td>Communication Status:</td>
                 <td>
-                    <select name="commStatus">
+                    <select name="selectAll">
                         <option th:each="level : ${communicationLevel}"
                                 th:value="${level}"
                                 th:text="${level.communicationLevel}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Education Level:</td>
+                <td>
+                    <select name="selectAll">
+                        <option th:each="level : ${educationLevel}"
+                                th:value="${level}"
+                                th:text="${level.displayLevel}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Strength/Range of Motion:</td>
+                <td>
+                    <select name="selectAll">
+                        <option th:each="strength : ${strengthAndRangeOfMotion}"
+                                th:value="${strength}"
+                                th:text="${strength.strengthRangeOfMotion}">
                         </option>
                     </select>
                 </td>

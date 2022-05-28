@@ -1,36 +1,13 @@
-.demographicContainer{
-height: 50%;
-width: 80%;
-display:flex;
-align-items:center;
-justify-content:center;
-border-bottom: 1px solid #a9a9a9;
-margin:auto;
 
-}
 #clinicHeader{
 display:flex;
 justify-content:center;
-margin-top:30px;
+
 }
 .child{
 padding:20px;
 width:100%;
 }
-.nax-item{
-color:white;
-}
-.referralContainer{
-height: 50%;
-width: 80%;
-display:flex;
-align-items:flex-start;
-justify-content:center;
-margin:auto;
-border-bottom: 1px solid #a9a9a9;
-
-}
-
 .child2{
 padding:20px;
 width:100%;
@@ -39,12 +16,33 @@ width:100%;
 #textArea{
 resize:none;
 }
-.assessmentInfo{
+.sideBySideTables{
 height: 50%;
 width: 80%;
 display:flex;
-align-items:center;
+align-items:flex-start;
 justify-content:center;
 border-bottom: 1px solid #a9a9a9;
 margin:auto;
+}
+#checkBoxes{
+width:100%; height: 100px; overflow-y: scroll;
+float:left;
+}
+#brainsInMotionHeader{
+display:flex;
+justify-content:center;
+margin-top:30px;
+}
+#brainsInMotionLogo{
+float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+.subHeader{
+display:flex;
+text-align:center;
+justify-content:center;
+margin-top:5px;
 }

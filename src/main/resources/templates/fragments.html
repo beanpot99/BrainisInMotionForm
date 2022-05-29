@@ -19,5 +19,18 @@
     Springfield, IL 62711<br>
     Phone:  217-8911524  Fax:  855-246-2163</p>
 </div>
+<textarea th:fragment="textArea" id="textArea" class="form-control" rows="3"></textarea>
+<td>
+    <div th:fragment="selectAllThatApply(enum)" th:each="enums : ${enum}">
+        <!--/*@thymesVar id="user" type="com.wimdeblauwe.examples.thymeleafiterationfragments.IndexController.User"*/-->
+        <input type="checkbox"
+               th:value="${enums}"
+               th:text="${enums.getName}"
+               />
+        <br>
+
+    </div>
+
+</td>
 </body>
 </html>

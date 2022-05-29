@@ -10,12 +10,12 @@ public enum AssessmentMethod {
     OPTION7("option 4"),
     OPTION8("option 4"),
     OPTION9("option 4");
-    private final String assessmentMethod;
-    AssessmentMethod(String assessmentMethod){
-        this.assessmentMethod=assessmentMethod;
+    private final String name;
+    AssessmentMethod(String name){
+        this.name=name;
     }
 
-    public String getAssessmentMethod() {
-        return assessmentMethod;
+    public String getName() {
+        return name;
     }
 }

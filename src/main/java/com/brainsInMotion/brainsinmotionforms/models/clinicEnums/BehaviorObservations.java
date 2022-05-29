@@ -10,12 +10,12 @@ public enum BehaviorObservations {
     OPTION7("option 4"),
     OPTION8("option 4"),
     OPTION9("option 4");
-    private final String behaviorObservations;
-    BehaviorObservations(String behaviorObservations){
-        this.behaviorObservations=behaviorObservations;
+    private final String name;
+    BehaviorObservations(String name){
+        this.name=name;
     }
 
-    public String getBehaviorObservations() {
-        return behaviorObservations;
+    public String getName() {
+        return name;
     }
 }

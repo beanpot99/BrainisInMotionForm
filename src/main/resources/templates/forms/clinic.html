@@ -78,13 +78,13 @@
     <div class="sideBySideTables">
             <div class="child2">
                 <h5 id="referralHeader">Referral Info/Parent Concerns:</h5>
-            <textarea name="referralAndConcerns" id="textArea" class="form-control" rows="3"></textarea>
+            <textarea th:replace="fragments :: textArea" name="referral"></textarea>
             </div><br>
     </div>
     <div class="sideBySideTables">
         <div class="child2">
             <h5 id="medicalDevHistory">Medical and Developmental History:</h5>
-            <textarea name="medicalDevHistory" id="textArea" class="form-control" rows="3"></textarea>
+            <textarea th:replace="fragments :: textArea" name="medicalHistory"></textarea>
         </div>
     </div>
 <div class="sideBySideTables">
@@ -93,40 +93,19 @@
             <tr>
                 <td>Assessment Method:</td>
                 <td>
-                    <div id="checkBoxes">
-                    <div th:each="method : ${assessmentMethod}" >
-                    <input type="checkbox"
-                           th:value="${method}"
-                           th:text="${method.assessmentMethod}"/>
-                        <br>
-                    </div>
-                    </div>
+                    <div th:insert="fragments :: selectAllThatApply(${assessmentMethod})" id="checkBoxes"></div>
                 </td>
             </tr>
             <tr>
                 <td>Behavioral Observations:</td>
                 <td>
-                    <div id="checkBoxes">
-                        <div th:each="behavior : ${behaviorObservations}" >
-                            <input type="checkbox"
-                                   th:value="${behavior}"
-                                   th:text="${behavior.behaviorObservations}"/>
-                            <br>
-                        </div>
-                    </div>
+                    <div th:insert="fragments :: selectAllThatApply(${behaviorObservations})" id="checkBoxes"></div>
                 </td>
             </tr>
             <tr>
                 <td>Fine Motor Skills:</td>
                 <td>
-                    <div id="checkBoxes">
-                        <div th:each="motor : ${fineMotor}" >
-                            <input type="checkbox"
-                                   th:value="${motor}"
-                                   th:text="${motor.fineMotor}"/>
-                            <br>
-                        </div>
-                    </div>
+                    <div th:insert="fragments :: selectAllThatApply(${fineMotor})" id="checkBoxes" ></div>
                 </td>
             </tr>
         </table>
@@ -139,7 +118,7 @@
                     <select name="selectAll">
                         <option th:each="level : ${communicationLevel}"
                                 th:value="${level}"
-                                th:text="${level.communicationLevel}">
+                                th:text="${level.getName}">
                         </option>
                     </select>
                 </td>
@@ -150,7 +129,7 @@
                     <select name="selectAll">
                         <option th:each="level : ${educationLevel}"
                                 th:value="${level}"
-                                th:text="${level.displayLevel}">
+                                th:text="${level.getName}">
                         </option>
                     </select>
                 </td>
@@ -161,7 +140,7 @@
                     <select name="selectAll">
                         <option th:each="strength : ${strengthAndRangeOfMotion}"
                                 th:value="${strength}"
-                                th:text="${strength.strengthRangeOfMotion}">
+                                th:text="${strength.getName}">
                         </option>
                     </select>
                 </td>

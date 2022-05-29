@@ -10,12 +10,12 @@ public enum FineMotor {
     OPTION7("option 4"),
     OPTION8("option 4"),
     OPTION9("option 4");
-    private final String fineMotor;
-    FineMotor(String fineMotor){
-        this.fineMotor=fineMotor;
+    private final String name;
+    FineMotor(String name){
+        this.name=name;
     }
 
-    public String getFineMotor() {
-        return fineMotor;
+    public String getName() {
+        return name;
     }
 }

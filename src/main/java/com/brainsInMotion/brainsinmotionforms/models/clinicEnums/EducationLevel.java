@@ -10,12 +10,12 @@ public enum EducationLevel {
     ASSOCIATES("Associates"),
     BACHELORS("Bachelors"),
     GRADUATEANDABOVE("Graduate or above");
-    private final String displayLevel;
-    EducationLevel(String displayLevel){
-        this.displayLevel=displayLevel;
+    private final String name;
+    EducationLevel(String name){
+        this.name=name;
     }
 
-    public String getDisplayLevel() {
-        return displayLevel;
+    public String getName() {
+        return name;
     }
 }

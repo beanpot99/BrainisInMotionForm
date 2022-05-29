@@ -130,7 +130,72 @@
                     <div th:insert="fragments :: dropDownMenu(${strengthAndRangeOfMotion})"  name="strengthAndRangeOfMotion"></div>
                 </td>
             </tr>
+            <tr>
+                 <td>Activities of Daily Living:</td>
+                <!--<td>
+                    <div th:insert="fragments :: selectAllThatApply(${assessmentMethod})" id="checkBoxes" name="assessmentMethod"></div>
+                </td>*/-->
+            </tr>
         </table>
+    </div>
+</div>
+<div class="sideBySideTables">
+<div class="child2">
+    <table class="table table-striped">
+        <thead>
+        <h5 id="neuroMotorHeader">Neuromotor/Primitive Reflexes:</h5>
+        </thead>
+        <tr th:insert="fragments :: presentOrIntegrated('Fear Paralysis Reflex')" name="fearParalysis"></tr>
+        <tr th:insert="fragments :: presentOrIntegrated('Moro Reflex')" name="moro"></tr>
+        <tr th:insert="fragments :: presentOrIntegrated('Asymmetrical Tonic Neck Reflex (ATNR)')" name="atnr"></tr>
+        <tr th:insert="fragments :: presentOrIntegrated('Symmetrical Tonic Neck Reflex (STNR)')" name="stnr"></tr>
+        <tr th:insert="fragments :: presentOrIntegrated('Tonic Neck Reflex (TLR)')" name="tlr"></tr>
+        <tr th:insert="fragments :: presentOrIntegrated('Spinal Galant Reflex')" name="spinalGalant"></tr>
+        <tr th:insert="fragments :: presentOrIntegrated('Palmar Reflex')" name="palmar"></tr>
+    </table>
+</div>
+</div>
+<div class="sideBySideTables">
+    <div class="child2">
+        <h5 id="childSensoryProfile">Sensory Processing Skills: Child Sensory Profile 2</h5>
+        <table class="table" >
+            <tr>
+                <td>Category</td>
+                <td>Child score</td>
+                <td>Raw score</td>
+                <td>Much less than others</td>
+                <td>Less than others</td>
+                <td>Just like majority of others</td>
+                <td>More than others</td>
+                <td>Much more than others</td>
+
+            </tr>
+            <div th:each="category : ${childSensoryTwoCategories}">
+            <tr th:insert="fragments :: childSensoryProfile2(${category.key}, ${category.value}, 5)" ></tr>
+            </div>
+        </table>
+    </div>
+</div>
+<div class="textDisclaimer">
+    <p id="childSensoryDisclaimer">The Child Sensory Profile 2 was completed by mom -----------------and scored by this therapist.  It is used to measure a child’s sensory processing abilities and to profile the effect of sensory processing on functional performance in the daily life of a child.  The Child portion is standardized for children 3:0 to 14:11 years.  Scores are compared to peers.  Scores that fall in the Just like the majority of others range are considered in the average range.  More than others score is 1 or more standard deviations from the mean, Much more than others is 2 or more standard deviations from the mean.</p>
+</div>
+<div class="sideBySideTables">
+    <div class="child2">
+        <h5 id="childSensoryProfile">Sensory Processing Skills: Child Sensory Profile 2</h5>
+        <h6 id="visualTracking">Visual Tracking:</h6>
+        <textarea th:replace="fragments :: textArea" name="visualTracking"></textarea>
+    </div><br>
+</div>
+<div class="sideBySideTables">
+    <div class="child2">
+        <h6 id="visualSaccades">Visual Saccades:</h6>
+        <textarea th:replace="fragments :: textArea" name="visualSaccades"></textarea>
+    </div>
+</div>
+<div class="sideBySideTables">
+    <div class="child2">
+        <h6 id="convergenceDivergence">Convergence/Divergence:</h6>
+        <textarea th:replace="fragments :: textArea" name="convergenceDivergence"></textarea>
     </div>
 </div>
 </body>

@@ -52,6 +52,49 @@
 
 </td>
 
+<!-- Present/Integrated Each Row*/-->
+<tr th:fragment="presentOrIntegrated(string)">
+    <td th:text="${string}"></td>
+    <td>
+        <input type="checkbox" id="present"  value="present">
+        <label for="present" >Present</label>
+    </td>
+    <td>
+        <input type="checkbox" id="integrated"  value="integrated">
+        <label for="integrated" >Integrated</label>
+    </td>
+</tr>
 
+<!-- Sensory Scoring Chart*/-->
+<tr th:fragment="childSensoryProfile2(string, rawScore, rowScore)">
+    <td th:text="${string}"></td>
+    <td th:text="${rowScore}"></td>
+    <td th:text="${rawScore}"></td>
+    <td>
+        <div class="checkbox checkbox-inline checkbox-circle checkbox-md">
+        <input type="checkbox" class="styled"id="sensoryButton"  value="muchLess" name="muchLess">
+        </div>
+    </td>
+    <td>
+        <div class="checkbox checkbox-inline checkbox-circle checkbox-md">
+            <input type="checkbox" class="styled"id="sensoryButton"  value="lessThan" name="lessThan">
+        </div>
+    </td>
+    <td>
+        <div class="checkbox checkbox-inline checkbox-circle checkbox-md">
+            <input type="checkbox" class="styled"id="sensoryButton"  value="justLike" name="justLike">
+        </div>
+    </td>
+    <td>
+        <div class="checkbox checkbox-inline checkbox-circle checkbox-md">
+            <input type="checkbox" id="sensoryButton"  value="moreThan" name="moreThan">
+        </div>
+    </td>
+    <td>
+        <div class="checkbox checkbox-inline checkbox-circle checkbox-md">
+            <input type="checkbox" class="styled"id="sensoryButton"  value="muchMore" name="muchMore">
+        </div>
+    </td>
+</tr>
 </body>
 </html>

@@ -10,12 +10,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 @RequestMapping("forms")
 public class ClinicController {
-
-
+    static HashMap<String, String> childSensoryTwoCategories = new HashMap<>();
+    public ClinicController(){
+        childSensoryTwoCategories.put("Seeking/Seeker","/95");
+        childSensoryTwoCategories.put("Avoiding/Avoider","/100");
+        childSensoryTwoCategories.put("Sensitivity/Sensor","/95");
+        childSensoryTwoCategories.put("Registration/Bystander","/110");
+        childSensoryTwoCategories.put("Auditory","/40");
+        childSensoryTwoCategories.put("Visual","/30");
+        childSensoryTwoCategories.put("Touch","/55");
+        childSensoryTwoCategories.put("Movement","/40");
+        childSensoryTwoCategories.put("Body Position","/40");
+        childSensoryTwoCategories.put("Oral","/50");
+        childSensoryTwoCategories.put("Conduct","/45");
+        childSensoryTwoCategories.put("Social Emotional","/70");
+        childSensoryTwoCategories.put("Attentional","/50");
+    }
     @GetMapping("clinic")
     public String displayClinicForm(Model model){
     model.addAttribute("educationLevel", EducationLevel.values());
@@ -24,6 +39,7 @@ public class ClinicController {
     model.addAttribute("behaviorObservations", BehaviorObservations.values());
     model.addAttribute("fineMotor", FineMotor.values());
     model.addAttribute("strengthAndRangeOfMotion", StrengthRangeOfMotion.values());
+    model.addAttribute("childSensoryTwoCategories", childSensoryTwoCategories);
         return "forms/clinic";
     }
     @PostMapping(value="clinic/{therapistName}")

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http:/>/www.thymeleaf.org/"/>
+
+<!-- HEAD AND STYLESHEETS*/-->
 <head th:fragment="head">
     <meta charset="UTF-8"/>
     <title>Brains in Motion Forms</title>
@@ -7,30 +9,49 @@
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<!-- TOP NAV BAR*/-->
 <nav th:fragment="header" class="navbar bg-dark">
     <ul class="nav">
         <li class="nav-item"><a class= "nav-link " href="/forms/clinic">Clinic Form</a></li>
         <li class="nav-item"><a class= "nav-link " href="/forms/EI">Early Intervention Form</a></li>
     </ul>
 </nav>
+
+<!-- HEADER WITH LOGO*/-->
 <div th:fragment="logoHeader">
     <h2 id="brainsInMotionHeader">Brains in Motion, LLC.</h2>
     <p class="subHeader">3131 Greenhead Drive Suite D<br>
     Springfield, IL 62711<br>
     Phone:  217-8911524  Fax:  855-246-2163</p>
 </div>
+
+<!-- TEXTAREA */-->
 <textarea th:fragment="textArea" id="textArea" class="form-control" rows="3"></textarea>
+
+<!-- SELECT ALL THAT APPLY*/-->
 <td>
-    <div th:fragment="selectAllThatApply(enum)" th:each="enums : ${enum}">
+    <div th:fragment="selectAllThatApply(enum)" th:each="enums : ${enum}" >
         <!--/*@thymesVar id="user" type="com.wimdeblauwe.examples.thymeleafiterationfragments.IndexController.User"*/-->
         <input type="checkbox"
                th:value="${enums}"
                th:text="${enums.getName}"
                />
         <br>
-
     </div>
+</td>
+
+<!-- DROPDOWN*/-->
+<td>
+    <select th:fragment="dropDownMenu(enum)">
+        <option th:each="enums:${enum}"
+                th:value="${enums}"
+                th:text="${enums.getName}">
+        </option>
+    </select>
 
 </td>
+
+
 </body>
 </html>

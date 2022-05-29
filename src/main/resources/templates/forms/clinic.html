@@ -93,19 +93,19 @@
             <tr>
                 <td>Assessment Method:</td>
                 <td>
-                    <div th:insert="fragments :: selectAllThatApply(${assessmentMethod})" id="checkBoxes"></div>
+                    <div th:insert="fragments :: selectAllThatApply(${assessmentMethod})" id="checkBoxes" name="assessmentMethod"></div>
                 </td>
             </tr>
             <tr>
                 <td>Behavioral Observations:</td>
                 <td>
-                    <div th:insert="fragments :: selectAllThatApply(${behaviorObservations})" id="checkBoxes"></div>
+                    <div th:insert="fragments :: selectAllThatApply(${behaviorObservations})" id="checkBoxes" name="behaviorObservations"></div>
                 </td>
             </tr>
             <tr>
                 <td>Fine Motor Skills:</td>
                 <td>
-                    <div th:insert="fragments :: selectAllThatApply(${fineMotor})" id="checkBoxes" ></div>
+                    <div th:insert="fragments :: selectAllThatApply(${fineMotor})" id="checkBoxes" name="fineMotor"></div>
                 </td>
             </tr>
         </table>
@@ -115,34 +115,19 @@
             <tr>
                 <td>Communication Status:</td>
                 <td>
-                    <select name="selectAll">
-                        <option th:each="level : ${communicationLevel}"
-                                th:value="${level}"
-                                th:text="${level.getName}">
-                        </option>
-                    </select>
+                    <div th:insert="fragments :: dropDownMenu(${communicationLevel})"  name="communicationLevel"></div>
                 </td>
             </tr>
             <tr>
                 <td>Education Level:</td>
                 <td>
-                    <select name="selectAll">
-                        <option th:each="level : ${educationLevel}"
-                                th:value="${level}"
-                                th:text="${level.getName}">
-                        </option>
-                    </select>
+                    <div th:insert="fragments :: dropDownMenu(${educationLevel})"  name="educationLevel"></div>
                 </td>
             </tr>
             <tr>
                 <td>Strength/Range of Motion:</td>
                 <td>
-                    <select name="selectAll">
-                        <option th:each="strength : ${strengthAndRangeOfMotion}"
-                                th:value="${strength}"
-                                th:text="${strength.getName}">
-                        </option>
-                    </select>
+                    <div th:insert="fragments :: dropDownMenu(${strengthAndRangeOfMotion})"  name="strengthAndRangeOfMotion"></div>
                 </td>
             </tr>
         </table>

@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/"/>
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
-</head>
+<head th:replace="fragments :: head"></head>
+<nav th:replace="fragments :: header"></nav>
+<header th:replace="fragments :: logoHeader"></header>
 <body>
-<h1>Illinois Early Intervention: Evaluation/Assessment Report</h1>
+<header id="clinicHeader">
+    <h3 id="clinicHeading">Illinois Early Intervention: Evaluation/Assessment Report</h3>
+</header>
+<div class="sideBySideTables">
+    <div class="child">
+        <table class="table table-striped">
+            <tr>
+                <td>Child's Name:</td>
+                <td><input type="text" value="" name="childName"></td>
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td><input type="date" value="" name="dateOfBirth"></td>
+            </tr>
+            <tr>
+                <td>Parent's Name:</td>
+                <td><input type="text" value="" name="parentName"></td>
+            </tr>
+            <tr>
+                <td>Parent/Guardian:</td>
+                <td><input type="text" value="" name="parent"></td>
+            </tr>
+            <tr>
+                <td>Service Coordinator's Name:</td>
+                <td>
+                    <select name="therapistChoice">
+                        <option value="kristi" name="kristi">Kristi Warren</option>
+                        <option value="newTherapist" name="newTherapist">Other people tbd </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>CFC Number:</td>
+                <td>
+                    <select name="cfcNum">
+                        <option  name="cfcOne">Num 1</option>
+                        <option name="cfcTwo">Num 2 </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="child">
+        <table class="table table-striped">
+            <tr>
+                <td>Early Intervention number:</td>
+                <td><input type="number" value="" name="EINumber"></td>
+            </tr>
+            <tr>
+                <td>Chronological Age:</td>
+                <td><input type="number" value="" name="chronAge"></td>
+            </tr>
+            <tr>
+                <td>Adjusted Age:</td>
+                <td><input type="number" value="" name="chronAge"></td>
+            </tr>
+            <tr>
+                <td>Physician Name:</td>
+                <td><input type="text" value="" name="physicianName"></td>
+            </tr>
+            <tr>
+                <td>Language Spoken:</td>
+                <td>
+                    <div th:insert="fragments :: dropDownMenu(${languages})"  name="languages"></div>
+                </td>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

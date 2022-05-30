@@ -51,16 +51,8 @@ public class ClinicController {
     }
     @PostMapping(value="clinic/{therapistName}")
     public String autoFillTherapist(Model model, @PathVariable String therapistName){
-        ArrayList<Therapist> therapists=new ArrayList<>();
-        Therapist kristi = new Therapist("Kristi Warren","MOT,OT/L","OT","217-891-1524","C:\\Users\\16185\\Desktop\\LC-Projects\\Java\\brains-in-motion-forms\\src\\main\\resources\\static\\images");
-        Therapist newTherapist = new Therapist("New lady", "MOT,OT/L", "OT","217-555-5555","uncreated");
-        if(therapistName=="kristi" ){
-            therapists.add(kristi);
-            model.addAttribute("therapist",therapists);
-        }else {
-            therapists.add(newTherapist);
-            model.addAttribute("therapist",therapists);
-        }
+
+
         return "clinic";
     }
 }

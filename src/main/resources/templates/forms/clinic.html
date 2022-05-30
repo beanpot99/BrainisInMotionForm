@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/"/>
 <head th:replace="fragments :: head"></head>
 <body>
 <nav th:replace="fragments :: header"></nav>
@@ -183,19 +182,78 @@
     <div class="child2">
         <h5 id="childSensoryProfile">Sensory Processing Skills: Child Sensory Profile 2</h5>
         <h6 id="visualTracking">Visual Tracking:</h6>
-        <textarea th:replace="fragments :: textArea" name="visualTracking"></textarea>
+        <textarea th:replace="fragments :: textArea" name="visualTracking" id="childSensoryTextAreas"></textarea>
     </div><br>
 </div>
 <div class="sideBySideTables">
     <div class="child2">
         <h6 id="visualSaccades">Visual Saccades:</h6>
-        <textarea th:replace="fragments :: textArea" name="visualSaccades"></textarea>
+        <textarea th:replace="fragments :: textArea" name="visualSaccades" id="childSensoryTextAreas"></textarea>
     </div>
 </div>
 <div class="sideBySideTables">
     <div class="child2">
         <h6 id="convergenceDivergence">Convergence/Divergence:</h6>
-        <textarea th:replace="fragments :: textArea" name="convergenceDivergence"></textarea>
+        <textarea th:replace="fragments :: textArea" name="convergenceDivergence" id="childSensoryTextAreas"></textarea>
+    </div>
+</div>
+<div class="sideBySideTables">
+<div class="child2">
+    <table class="table">
+        <tr>
+            <td>Frequency of OT:</td>
+            <td>
+                <div th:insert="fragments :: dropDownMenu(${frequencyOfOT})"  name="frequencyOfOT"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Duration of OT:</td>
+            <td>
+                <select>
+                    <option>3 Months</option>
+                    <option>6 Months</option>
+            </select>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+
+<div class="sideBySideTables2">
+    <div class="child2">
+        <h5 id="OTGoals">Occupational Therapy Goals</h5>
+        <table class="table table-striped">
+            <tr>
+                <td>1.</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="sideBySideTables">
+    <div class="evaluatorName">
+        <select class="evaluatorSelect">
+            <option th:each="therapist : ${allTherapists}" th:text="${therapist.key}"></option>
+        </select><br>
+        <p class="h6">Evaluator Printed Name</p>
+    </div>
+    <div class="evaluatorName">
+        <select class="evaluatorSelect">
+            <option >Signature to be determined later  </option>
+        </select><br>
+        <p class="h6">Evaluator Signature</p>
     </div>
 </div>
 </body>

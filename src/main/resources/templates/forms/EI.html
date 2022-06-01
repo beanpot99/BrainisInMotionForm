@@ -6,9 +6,14 @@
 <header id="clinicHeader">
     <h3 id="clinicHeading">Illinois Early Intervention: Evaluation/Assessment Report</h3>
 </header>
+
+
 <div class="sideBySideTables">
+
     <div class="child">
+
         <table class="table table-striped">
+
             <tr>
                 <td>Child's Name:</td>
                 <td><input type="text" value="" name="childName"></td>
@@ -71,7 +76,105 @@
                 </td>
             </tr>
         </table>
+
+</div>
+</div>
+<div class="sideBySideTables">
+    <div class="child">
+        <table class="table table-striped">
+            <tr>
+                <td>Select One (for eligibility determination):</td>
+                <td>
+                    <select>
+                        <option>Evaluation</option>
+                        <option>Assessment</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Date of Evaluation/Assessment:</td>
+                <td><input type="date" value="" name="dateOfBirth"></td>
+            </tr>
+            <tr>
+                <td>Provider Name:</td>
+                <td>
+                    <select name="therapistChoice">
+                        <option value="kristi" name="kristi">Kristi Warren</option>
+                        <option value="newTherapist" name="newTherapist">Other people tbd </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Provider Discipline:</td>
+                <td>OT</td>
+            </tr>
+        </table>
+    </div>
+    <div class="child">
+        <table class="table table-striped">
+            <tr>
+                <td>Assessment/Evaluation Location:</td>
+                <td>
+                    <div th:insert="fragments :: dropDownMenu(${assessLocation})"  name="assessLocations"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Provider Phone Number:</td>
+                <td>217-891-1524</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Assessment(if child already eligible):</td>
+                <td rowspan="2">
+                    <textarea th:replace="fragments :: textArea" name="EIAssessmentText"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="sideBySideTables">
+    <div class="child2">
+        <h5 id="childSensoryProfile">Referral Information</h5>
+        <p id="referralConcerns">Please list reason for referral, who referred to Child & Family Connections, and parent/guardian concerns:</p>
+        <textarea th:replace="fragments :: textArea" name="referralInfo" id="referralInfo"></textarea>
+    </div><br>
+</div>
+<div class="sideBySideTables2">
+    <div class="child2">
+        <h5 id="OTGoals">Occupational Therapy Goals</h5>
+        <table class="table table-striped" >
+            <tr>
+                <td th:replace="fragments ::  freeText" name="instrumentUsed">Title of Instrument Used</td>
+                <td id="bordRight" >Developmental Domain Addressed</td>
+                <td id="bordRight" >Age Equivalent</td>
+                <td >Percent of Delay</td>
+            </tr>
+            <tr>
+                <td row-span="3">Peabody Developmental Motor Scales (PDMS 2nd)</td>
+                <td id="bordRight">Physical Domain</td>
+                <td id="bordRight"><input type="number" value="" name="physDomAge"></td>
+                <td th:replace="fragments ::  freeText" name="physDomPercent"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="bordRight">Grasping</td>
+                <td id="bordRight"><input type="number" value="" name="graspAge"></td>
+                <td th:replace="fragments ::  freeText" name="graspPercent"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td id="bordRight">Visual Motor Integration</td>
+                <td id="bordRight"><input type="number" value="" name="visualMotorAge"></td>
+                <td th:replace="fragments ::  freeText" name="visualMotorPercent"></td>
+            </tr>
+            <tr>
+                <td>Fine Motor Quotient (FMQ)</td>
+                <td id="bordRight">Final Score </td>
+                <td id="bordRight"><input type="number" value="" name="visualMotorAge"></td>
+                <td th:replace="fragments ::  freeText" name="finalPercentScore"></td>
+            </tr>
+        </table>
     </div>
 </div>
 </body>
 </html>
+

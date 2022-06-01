@@ -98,3 +98,20 @@ width:100%;
 #bordRight{
 border-right:1px solid #a9a9a9;
 }
+.sectionHeaders{
+height: 25px;
+width: 80%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto;
+margin-top:10px;
+
+}
+.childSectionHeaders{
+
+width:100%;
+height:25px;
+
+background-color:#BEBEBE;
+}

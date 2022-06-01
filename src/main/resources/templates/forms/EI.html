@@ -6,7 +6,9 @@
 <header id="clinicHeader">
     <h3 id="clinicHeading">Illinois Early Intervention: Evaluation/Assessment Report</h3>
 </header>
-
+<div class="sectionHeaders">
+    <h5 class="childSectionHeaders">SECTION 1:  Demographic Information</h5>
+</div>
 
 <div class="sideBySideTables">
 
@@ -79,6 +81,9 @@
 
 </div>
 </div>
+<div class="sectionHeaders">
+    <h5 class="childSectionHeaders">SECTION 2:  Type of Report</h5>
+</div>
 <div class="sideBySideTables">
     <div class="child">
         <table class="table table-striped">
@@ -131,49 +136,59 @@
         </table>
     </div>
 </div>
+<div class="sectionHeaders">
+    <h5 class="childSectionHeaders">SECTION 3:  Referral Information</h5>
+</div>
 <div class="sideBySideTables">
     <div class="child2">
-        <h5 id="childSensoryProfile">Referral Information</h5>
         <p id="referralConcerns">Please list reason for referral, who referred to Child & Family Connections, and parent/guardian concerns:</p>
         <textarea th:replace="fragments :: textArea" name="referralInfo" id="referralInfo"></textarea>
     </div><br>
 </div>
-<div class="sideBySideTables2">
+<div class="sectionHeaders">
+    <h5 class="childSectionHeaders">SECTION 4: Instrument(s) Administered during Evaluation and/or Assessment</h5>
+</div>
+<div class="sideBySideTables">
     <div class="child2">
-        <h5 id="OTGoals">Occupational Therapy Goals</h5>
         <table class="table table-striped" >
             <tr>
-                <td th:replace="fragments ::  freeText" name="instrumentUsed">Title of Instrument Used</td>
+                <td id="bordRight">
+                    <p>Title of Instrument Used</p>
+                    <input type="text" value="" name="instrumentUsed">
+                </td>
                 <td id="bordRight" >Developmental Domain Addressed</td>
                 <td id="bordRight" >Age Equivalent</td>
                 <td >Percent of Delay</td>
             </tr>
             <tr>
-                <td row-span="3">Peabody Developmental Motor Scales (PDMS 2nd)</td>
+                <td id="bordRight" rowspan="3">Peabody Developmental Motor Scales (PDMS 2nd)</td>
                 <td id="bordRight">Physical Domain</td>
                 <td id="bordRight"><input type="number" value="" name="physDomAge"></td>
                 <td th:replace="fragments ::  freeText" name="physDomPercent"></td>
             </tr>
             <tr>
-                <td></td>
+
                 <td id="bordRight">Grasping</td>
                 <td id="bordRight"><input type="number" value="" name="graspAge"></td>
                 <td th:replace="fragments ::  freeText" name="graspPercent"></td>
             </tr>
             <tr>
-                <td></td>
+
                 <td id="bordRight">Visual Motor Integration</td>
                 <td id="bordRight"><input type="number" value="" name="visualMotorAge"></td>
                 <td th:replace="fragments ::  freeText" name="visualMotorPercent"></td>
             </tr>
             <tr>
-                <td>Fine Motor Quotient (FMQ)</td>
+                <td id="bordRight">Fine Motor Quotient (FMQ)</td>
                 <td id="bordRight">Final Score </td>
                 <td id="bordRight"><input type="number" value="" name="visualMotorAge"></td>
                 <td th:replace="fragments ::  freeText" name="finalPercentScore"></td>
             </tr>
         </table>
     </div>
+</div>
+<div class="textDisclaimer">
+    <p id="childSensoryDisclaimer">The PDMS-2nd Edition is a criterion-referenced assessment, which measures fine and gross motor skill development from birth through age 6.  Each test item is scored as a 0,1, or 2 with the total raw score for each section calculated by adding these points.  Raw scores are converted to standard scores and age equivalents.  Age Equivalent is the least reliable score.  The Fine Motor Quotient(FMQ) is derived by adding the standard scores from the two fine motor sections.  Scores that fall between 90-110 are considered in the average range for this test, with a standard deviation of 15.  The FMQ measures the child’s ability to stack blocks, place simple shapes in a puzzle, grasping patterns, etc.</p>
 </div>
 </body>
 </html>

@@ -141,7 +141,7 @@
 </div>
 <div class="sideBySideTables">
     <div class="child2">
-        <p id="referralConcerns">Please list reason for referral, who referred to Child & Family Connections, and parent/guardian concerns:</p>
+        <h6 id="visualTracking">Please list reason for referral, who referred to Child & Family Connections, and parent/guardian concerns: </h6>
         <textarea th:replace="fragments :: textArea" name="referralInfo" id="referralInfo"></textarea>
     </div><br>
 </div>
@@ -189,6 +189,177 @@
 </div>
 <div class="textDisclaimer">
     <p id="childSensoryDisclaimer">The PDMS-2nd Edition is a criterion-referenced assessment, which measures fine and gross motor skill development from birth through age 6.  Each test item is scored as a 0,1, or 2 with the total raw score for each section calculated by adding these points.  Raw scores are converted to standard scores and age equivalents.  Age Equivalent is the least reliable score.  The Fine Motor Quotient(FMQ) is derived by adding the standard scores from the two fine motor sections.  Scores that fall between 90-110 are considered in the average range for this test, with a standard deviation of 15.  The FMQ measures the child’s ability to stack blocks, place simple shapes in a puzzle, grasping patterns, etc.</p>
+</div>
+<div class="sectionHeaders">
+    <h5 class="childSectionHeaders">SENSORY PROCESSING SKILLS: Child Sensory Profile 2:</h5>
+</div>
+<div class="sideBySideTables">
+    <div class="child2">
+        <table class="table" >
+            <tr>
+                <td>Category</td>
+                <td>Child score</td>
+                <td>Raw score</td>
+                <td>Much less than others</td>
+                <td>Less than others</td>
+                <td>Just like majority of others</td>
+                <td>More than others</td>
+                <td>Much more than others</td>
+            </tr>
+            <tr>
+                <th colspan="8">Quadrants</th>
+            </tr>
+            <div th:each="category : ${toddlerSensoryQuadrants}">
+                <tr th:insert="fragments :: toddlerSensoryProfile(${category.key}, ${category.value}, 5)" ></tr>
+            </div>
+            <tr>
+                <th colspan="8">Sensory and Behavioral Sections</th>
+            </tr>
+            <div th:each="category : ${toddlerSensoryBehavioral}">
+                <tr th:insert="fragments :: toddlerSensoryProfile(${category.key}, ${category.value}, 5)" ></tr>
+            </div>
+        </table>
+    </div>
+</div>
+<div class="textDisclaimer">
+    <p id="childSensoryDisclaimer">The Sensory Profile 2 was completed by  mother and scored by this therapist.  It is used to measure a child’s sensory processing abilities and to profile the effect of sensory processing on functional performance in the daily life of a child.  The Toddler portion is standardized for children 7 to 35 months.  Scores are compared to same aged peers.  Scores that fall in the Just like the majority of others range is considered in the average range.  More than others score is 1 or more standard deviations from the mean, Much more than others is 2 or more standard deviations from the mean.</p>
+</div>
+<div class="sectionHeaders">
+    <h5 class="childSectionHeaders"> SECTION 5: Evaluation and/or Assessment</h5>
+</div>
+<div class="childItemsBelowEachOther">
+    <div class="child2">
+        <h6 id="visualTracking">A. Child’s developmental history and summary of parents’ concerns: </h6>
+        <textarea th:replace="fragments :: textArea" name="devHistory" id="devHistory"></textarea>
+    </div>
+
+<div class="child2">
+    <h6 >B. Summary of medical history:</h6>
+    <table class="table table-striped">
+        <tr>
+            <td>Pregnancy:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+        <tr>
+            <td>Delivery:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+        <tr>
+            <td>Child’s health since birth:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+        <tr>
+            <td>ER visits/Hospitalizations:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+        <tr>
+            <td>Allergies:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+        <tr>
+            <td>Diagnosis:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+        <tr>
+            <td>Specialists:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+        <tr>
+            <td>Surgeries:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+        <tr>
+            <td>Medications:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+        <tr>
+            <td>Hearing:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+        <tr>
+            <td>Vision:</td>
+            <td th:replace="fragments ::  freeText" ></td>
+        </tr>
+    </table>
+</div>
+    <div class="child2">
+        <h6 >C. Behavioral Observations of the child:</h6>
+        <table class="table table-striped">
+            <tr>
+                <td>Environment:</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+            <tr>
+                <td>State of Regulation/Modulation:</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+            <tr>
+                <td>Eye Contact/Communication:</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+        </table>
+    </div>
+    <div class="child2">
+        <h6 >D. Child’s level of functioning in each of the developmental areas tested. (For annual reviews, also include information about the child’s progress towards IFSP outcomes):</h6>
+        <table class="table table-striped">
+            <tr>
+                <td>STRENGTH/MUSCLE TONE/RANGE OF MOTION:</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+            <tr>
+                <td>FINE MOTOR/GRASPING:</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+            <tr>
+                <td>VISUAL MOTOR INTEGRATION:</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+            <tr>
+                <td>FUNCTIONAL VISION:</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+            <tr>
+                <td>SELF-HELP SKILLS:</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+            <tr>
+                <td>EFFECT OF SENSORY PROCESSING ON DAILY ACTIVITIES:</td>
+                <td th:replace="fragments ::  freeText" ></td>
+            </tr>
+        </table>
+    </div>
+    <div class="child2">
+        <h6 id="visualTracking"> Provide justification for annual redetermination for children not meeting original eligibility criteria:</h6>
+        <textarea th:replace="fragments :: textArea" name="devHistory" id="devHistory"></textarea>
+    </div>
+</div>
+<div class="sectionHeaders">
+    <h5 class="childSectionHeaders">SECTION 6:  Summary and Interpretation</h5>
+</div>
+
+<div class="childItemsBelowEachOther">
+    <div class="child2">
+    <h6 id="visualTracking">A. Brief summation of the child’s unique strengths and needs, ability to perform functional skills and how the child is able to participate in family routines.  Include statements about the tool's accuracy in portraying child’s development.</h6>
+    <textarea th:replace="fragments :: textArea" name="devHistory" id="sectionSixPartA"></textarea>
+</div>
+    <div class="child2">
+        <h6 id="visualTracking">If applicable, recommendations for referrals for additional EI assessments and/or other resources outside of Early Intervention to be discussed at the IFSP meeting.</h6>
+        <textarea th:replace="fragments :: textArea" name="devHistory" id="sectionSixPartB"></textarea>
+    </div>
+    </div>
+<div class="sideBySideTables">
+    <div class="evaluatorName">
+        <select class="evaluatorSelect">
+            <option th:each="therapist : ${allTherapists}" th:text="${therapist.key}"></option>
+        </select><br>
+        <p class="h6">Evaluator Printed Name</p>
+    </div>
+    <div class="evaluatorName">
+        <select class="evaluatorSelect">
+            <option >Signature to be determined later  </option>
+        </select><br>
+        <p class="h6">Evaluator Signature</p>
+    </div>
 </div>
 </body>
 </html>

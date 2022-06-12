@@ -53,16 +53,15 @@
 </td>
 
 <!-- Present/Integrated Each Row*/-->
-<tr th:fragment="presentOrIntegrated(string)">
-    <td th:text="${string}"></td>
-    <td>
-        <input type="checkbox" id="present"  value="present">
+
+    <td th:fragment="present">
+        <input type="checkbox" id="present" >
         <label for="present" >Present</label>
     </td>
-    <td>
-        <input type="checkbox" id="integrated"  value="integrated">
+    <td th:fragment="integrated">
+        <input type="checkbox" id="integrated" >
         <label for="integrated" >Integrated</label>
-    </td>
+</td>
 </tr>
 
 <!-- Sensory Scoring Chart CLINIC*/-->
@@ -72,27 +71,27 @@
     <td th:text="${rawScore}"></td>
     <td>
         <div class="checkbox checkbox-inline checkbox-circle checkbox-md">
-        <input type="checkbox" class="styled"id="sensoryButton"  value="muchLess" name="muchLess">
+        <input type="checkbox" class="styled"id="sensoryButton"  name="muchLess">
         </div>
     </td>
     <td>
         <div class="checkbox checkbox-inline checkbox-circle checkbox-md">
-            <input type="checkbox" class="styled"id="sensoryButton"  value="lessThan" name="lessThan">
+            <input type="checkbox" class="styled"id="sensoryButton"  name="lessThan">
         </div>
     </td>
     <td>
         <div class="checkbox checkbox-inline checkbox-circle checkbox-md">
-            <input type="checkbox" class="styled"id="sensoryButton"  value="justLike" name="justLike">
+            <input type="checkbox" class="styled"id="sensoryButton" name="justLike">
         </div>
     </td>
     <td>
         <div class="checkbox checkbox-inline checkbox-circle checkbox-md">
-            <input type="checkbox" id="sensoryButton"  value="moreThan" name="moreThan">
+            <input type="checkbox" id="sensoryButton" name="moreThan">
         </div>
     </td>
     <td>
         <div class="checkbox checkbox-inline checkbox-circle checkbox-md">
-            <input type="checkbox" class="styled"id="sensoryButton"  value="muchMore" name="muchMore">
+            <input type="checkbox" class="styled"id="sensoryButton"  name="muchMore">
         </div>
     </td>
 </tr>

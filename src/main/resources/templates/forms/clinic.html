@@ -6,6 +6,7 @@
 <header id="clinicHeader">
     <h3 id="clinicHeading">Initial Occupational Therapy Evaluation</h3>
     </header>
+<form method="post" th:action="@{/completeClinic}">
     <div class="sideBySideTables">
         <div class="child">
             <table class="table table-striped">
@@ -23,7 +24,7 @@
                 </tr>
                 <tr>
                     <td>Parent/Guardian:</td>
-                    <td><input type="text" value="" name="parent"></td>
+                    <td><input type="text" value="" name="parentName"></td>
                 </tr>
                 <tr>
                     <td>Diagnosis:</td>
@@ -33,8 +34,8 @@
                     <td>Therapist:</td>
                     <td>
                         <select name="therapistChoice">
-                            <option value="kristi" name="kristi">Kristi Warren</option>
-                            <option value="newTherapist" name="newTherapist">New therapist </option>
+                            <option value="kristi" name="kristiTherapistClinic">Kristi Warren</option>
+                            <option value="newTherapist" name="newTherapistClinic">New therapist </option>
                         </select>
                     </td>
                 </tr>
@@ -47,23 +48,19 @@
                     <td><input type="date" value="" name="DOB"></td>
                 </tr>
                 <tr>
-                    <td>Parent/Guardian:</td>
-                    <td><input type="text" value="" name="parent"></td>
-                </tr>
-                <tr>
                     <td>Phone:</td>
-                    <td><input type="text" value="(217)" name="phone"></td>
+                    <td><input type="text" value="(217)" name="clientPhone"></td>
                 </tr>
                 <tr>
                     <td>Physician:</td>
-                    <td><input type="text" value="" name="physician"></td>
+                    <td><input type="text" value="" name="physicianName"></td>
                 </tr>
                 <tr>
                     <td>Payer:</td>
                     <td>
                         <select name="payer">
-                            <option value="insurance" name="insurance">Insurance</option>
-                            <option value="privatePay" name="privatePay">Private Pay </option>
+                            <option value="insurance" name="insuranceClinic">Insurance</option>
+                            <option value="privatePay" name="privatePayClinic">Private Pay </option>
                         </select>
                     </td>
                 </tr>
@@ -139,7 +136,7 @@
             <tr>
                  <td>Activities of Daily Living:</td>
                 <!--<td>
-                    <div th:insert="fragments :: selectAllThatApply(${assessmentMethod})" id="checkBoxes" name="assessmentMethod"></div>
+                    <div th:insert="fragments :: selectAllThatApply(${assessmentMethod})" id="checkBoxes" name="activitiesOfDailyLiving"></div>
                 </td>*/-->
             </tr>
         </table>
@@ -151,13 +148,41 @@
 <div class="sideBySideTables">
 <div class="child2">
     <table class="table table-striped">
-        <tr th:insert="fragments :: presentOrIntegrated('Fear Paralysis Reflex')" name="fearParalysis"></tr>
-        <tr th:insert="fragments :: presentOrIntegrated('Moro Reflex')" name="moro"></tr>
-        <tr th:insert="fragments :: presentOrIntegrated('Asymmetrical Tonic Neck Reflex (ATNR)')" name="atnr"></tr>
-        <tr th:insert="fragments :: presentOrIntegrated('Symmetrical Tonic Neck Reflex (STNR)')" name="stnr"></tr>
-        <tr th:insert="fragments :: presentOrIntegrated('Tonic Neck Reflex (TLR)')" name="tlr"></tr>
-        <tr th:insert="fragments :: presentOrIntegrated('Spinal Galant Reflex')" name="spinalGalant"></tr>
-        <tr th:insert="fragments :: presentOrIntegrated('Palmar Reflex')" name="palmar"></tr>
+        <tr>
+            <td>Fear Paralysis Reflex</td>
+            <td th:insert="fragments :: present" name="fearParalysisPresent"></td>
+            <td th:insert="fragments :: integrated" name="fearParalysisIntegrated"></td>
+        </tr>
+        <tr>
+            <td>Moro Reflex</td>
+            <td th:insert="fragments :: present" name="moroPresent"></td>
+            <td th:insert="fragments :: integrated" name="moroIntegrated"></td>
+        </tr>
+        <tr>
+            <td>Asymmetrical Tonic Neck Reflex (ATNR)</td>
+            <td th:insert="fragments :: present" name="atnrPresent"></td>
+            <td th:insert="fragments :: integrated" name="atnrIntegrated"></td>
+        </tr>
+        <tr>
+            <td>Symmetrical Tonic Neck Reflex (STNR)</td>
+            <td th:insert="fragments :: present" name="stnrPresent"></td>
+            <td th:insert="fragments :: integrated" name="stnrIntegrated"></td>
+        </tr>
+        <tr>
+            <td>Tonic Neck Reflex</td>
+            <td th:insert="fragments :: present" name="tlrPresent"></td>
+            <td th:insert="fragments :: integrated" name="tlrIntegrated"></td>
+        </tr>
+        <tr>
+            <td>Spinal Galant Reflex</td>
+            <td th:insert="fragments :: present" name="spinalGalantPresent"></td>
+            <td th:insert="fragments :: integrated" name="spinalGalantIntegrated"></td>
+        </tr>
+        <tr>
+            <td>Palmar Reflex</td>
+            <td th:insert="fragments :: present" name="palmarPresent"></td>
+            <td th:insert="fragments :: integrated" name="palmarIntegrated"></td>
+        </tr>
     </table>
 </div>
 </div>
@@ -272,5 +297,6 @@
         <p class="h6">Evaluator Signature</p>
     </div>
 </div>
+</form>
 </body>
 </html>

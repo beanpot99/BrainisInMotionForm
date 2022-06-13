@@ -9,7 +9,7 @@ public class ClinicForm {
     private String parentName;
     private String diagnosis;
     private String therapistChoice;
-    private String DOB;
+    private Date DOB;
     private String clientPhone;
     private String physicianName;
     private String payer;
@@ -22,24 +22,19 @@ public class ClinicForm {
     private String educationLevel;
     private String strengthAndRangeOfMotion;
     private String activitiesOfDailyLiving;
-    private String fearParalysisPresent;
-    private String fearParalysisIntegrated;
-    private String moroPresent;
-    private String moroIntegrated;
-    private String atnrPresent;
-    private String atnrIntegrated;
-    private String stnrPresent;
-    private String stnrIntegrated;
-    private String tlrPresent;
-    private String tlrIntegrated;
-    private String spinalGalantPresent;
-    private String spinalGalantIntegrated;
-    private String palmarPresent;
-    private String palmarIntegrated;
-    private String atnrIntegrated;
-    private String stnrPresent;
-    private String stnrIntegrated;
-    private String tlrPresent;
-    private String tlrIntegrated;
-    private String spinalGalantPresent;
+    private Boolean fearParalysisPresent;
+    private Boolean fearParalysisIntegrated;
+    private Boolean moroPresent;
+    private Boolean moroIntegrated;
+    private Boolean atnrPresent;
+    private Boolean atnrIntegrated;
+    private Boolean stnrPresent;
+    private Boolean stnrIntegrated;
+    private Boolean tlrPresent;
+    private Boolean tlrIntegrated;
+    private Boolean spinalGalantPresent;
+    private Boolean spinalGalantIntegrated;
+    private Boolean palmarPresent;
+    private Boolean palmarIntegrated;
+
 }

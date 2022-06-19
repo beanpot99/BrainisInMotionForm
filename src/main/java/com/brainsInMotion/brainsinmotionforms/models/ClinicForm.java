@@ -1,4 +1,4 @@
-package com.brainsInMotion.brainsinmotionforms.models.formClasses;
+package com.brainsInMotion.brainsinmotionforms.models;
 
 import java.util.Date;
 
@@ -36,5 +36,9 @@ public class ClinicForm {
     private Boolean spinalGalantIntegrated;
     private Boolean palmarPresent;
     private Boolean palmarIntegrated;
-
+    private String visualTracking;
+    private String visualSaccades;
+    private String convergenceDivergence;
+    private String frequencyOfOT;
+    pri
 }

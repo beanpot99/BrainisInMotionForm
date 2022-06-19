@@ -1,6 +1,5 @@
 package com.brainsInMotion.brainsinmotionforms;
 
-import com.brainsInMotion.brainsinmotionforms.data.TherapistData;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

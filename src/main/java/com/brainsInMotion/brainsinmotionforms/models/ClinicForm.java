@@ -40,5 +40,5 @@ public class ClinicForm {
     private String visualSaccades;
     private String convergenceDivergence;
     private String frequencyOfOT;
-    pri
+
 }

@@ -1,10 +1,274 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http:/>/www.thymeleaf.org/"/>
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
+<nav th:replace="fragments :: header"></nav>
+<header th:replace="fragments :: logoHeader"></header>
+<header id="clinicHeader">
+    <h3 id="clinicHeading">Initial Occupational Therapy Evaluation</h3>
+</header>
+    <div class="sideBySideTables">
+        <div class="child">
+            <table class="table table-striped">
+                <tr>
+                    <td>Date of Eval:</td>
+                    <td th:text="${dateOfEval}"></td>
+                </tr>
+                <tr>
+                    <td>Patient Name:</td>
+                    <td th:text="${patientName}"></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td th:text="${address}"></td>
+                </tr>
+                <tr>
+                    <td>Parent/Guardian:</td>
+                    <td th:text="${parentName}"></td>
+                </tr>
+                <tr>
+                    <td>Diagnosis:</td>
+                    <td th:text="${diagnosis}"></td>
+                </tr>
+                <tr>
+                    <td>Therapist:</td>
+                    <td <td th:text="${therapistChoice}"></td>></td>
+                </tr>
+            </table>
+        </div>
+        <div class="child">
+            <table class="table table-striped">
+                <tr>
+                    <td>DOB:</td>
+                    <td><input type="date" value="" th:field="${DOB}"></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="text" value="(217)" th:field="${clientPhone}"></td>
+                </tr>
+                <tr>
+                    <td>Physician:</td>
+                    <td><input type="text" value="" th:field="${physicianName}"></td>
+                </tr>
+                <tr>
+                    <td>Payer:</td>
+                    <td>
+                        <select th:field="${payer}">
+                            <option value="Insurance" name="insuranceClinic" th:text="Insurance"></option>
+                            <option value="Private Pay" name="privatePayClinic" th:text="Private Pay"> </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>NPI:</td>
+                    <td>1114051018</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="sectionHeaders">
+        <h5 class="childSectionHeaders">REFERRAL INFORMATION/PARENT CONCERNS:</h5>
+    </div>
+    <div class="sideBySideTables">
+        <div class="child2">
+            <textarea th:replace="fragments :: textArea" th:field="${referral}"></textarea>
+        </div><br>
+    </div>
+    <div class="sectionHeaders">
+        <h5 class="childSectionHeaders">MEDICAL AND DEVELOPMENTAL HISTORY:</h5>
+    </div>
+    <div class="sideBySideTables">
+        <div class="child2">
+            <textarea th:replace="fragments :: textArea" th:field="${medicalHistory}"></textarea>
+        </div>
+    </div>
+    <div class="sectionHeaders">
+        <h5 class="childSectionHeaders">ASSESSMENT INFORMATION:</h5>
+    </div>
+    <div class="sideBySideTables">
+        <div class="child">
+            <table class="table table-striped">
+                <tr>
+                    <td>Assessment Method:</td>
+                    <td>
+                        <div th:insert="fragments :: selectAllThatApply(${assessmentMethod})" id="checkBoxes" th:field="${assessmentMethod}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Behavioral Observations:</td>
+                    <td>
+                        <div th:insert="fragments :: selectAllThatApply(${behaviorObservations})" id="checkBoxes" th:field="${behaviorObservations}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Fine Motor Skills:</td>
+                    <td>
+                        <div th:insert="fragments :: selectAllThatApply(${fineMotor})" id="checkBoxes" th:field="${fineMotor}"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="child">
+            <table class="table table-striped">
+                <tr>
+                    <td>Communication Status:</td>
+                    <td>
+                        <div th:insert="fragments :: dropDownMenu(${communicationLevel})"  th:field="${communicationLevel}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Education Level:</td>
+                    <td>
+                        <div th:insert="fragments :: dropDownMenu(${educationLevel})"  th:field="${educationLevel}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Strength/Range of Motion:</td>
+                    <td>
+                        <div th:insert="fragments :: dropDownMenu(${strengthAndRangeOfMotion})"  th:field="${strengthAndRangeOfMotion}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Activities of Daily Living:</td>
+                    <td>
+                        <div th:insert="fragments :: selectAllThatApply(${activitiesOfDailyLiving})" id="checkBoxes" th:field="${activitiesOfDailyLiving}"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="sectionHeaders">
+        <h5 class="childSectionHeaders">NEUROMOTOR/PRIMITIVE REFLEXES:</h5>
+    </div>
+    <div class="sideBySideTables">
+        <div class="child2">
+            <table class="table table-striped">
+                <tr>
+                    <td>Fear Paralysis Reflex</td>
+                    <td th:insert="fragments :: present" th:field="${fearParalysisPresent}" ></td>
+                    <td th:insert="fragments :: integrated" th:field="${fearParalysisIntegrated}"></td>
+                </tr>
+                <tr>
+                    <td>Moro Reflex</td>
+                    <td th:insert="fragments :: present" th:field="${moroPresent}"></td>
+                    <td th:insert="fragments :: integrated" th:field="${moroIntegrated}"></td>
+                </tr>
+                <tr>
+                    <td>Asymmetrical Tonic Neck Reflex (ATNR)</td>
+                    <td th:insert="fragments :: present" th:field="${atnrPresent}"></td>
+                    <td th:insert="fragments :: integrated" th:field="${atnrIntegrated}"></td>
+                </tr>
+                <tr>
+                    <td>Symmetrical Tonic Neck Reflex (STNR)</td>
+                    <td th:insert="fragments :: present" th:field="${stnrPresent}"></td>
+                    <td th:insert="fragments :: integrated" th:field="${stnrIntegrated}"></td>
+                </tr>
+                <tr>
+                    <td>Tonic Neck Reflex</td>
+                    <td th:insert="fragments :: present" th:field="${tlrPresent}"></td>
+                    <td th:insert="fragments :: integrated" th:field="${tlrIntegrated}"></td>
+                </tr>
+                <tr>
+                    <td>Spinal Galant Reflex</td>
+                    <td th:insert="fragments :: present" th:field="${spinalGalantPresent}"></td>
+                    <td th:insert="fragments :: integrated" th:field="${spinalGalantIntegrated}"></td>
+                </tr>
+                <tr>
+                    <td>Palmar Reflex</td>
+                    <td th:insert="fragments :: present" th:field="${palmarPresent}"></td>
+                    <td th:insert="fragments :: integrated" th:field="${palmarIntegrated}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
+    <div class="sectionHeaders">
+        <h5 class="childSectionHeaders">VISUAL MOTOR/VISUAL PERCEPTION</h5>
+    </div>
+    <div class="sideBySideTables">
+        <div class="child2">
+
+            <h6 id="visualTracking">Visual Tracking:</h6>
+            <textarea th:replace="fragments :: textArea" th:field="${visualTracking}" id="childSensoryTextAreas"></textarea>
+        </div><br>
+    </div>
+    <div class="sideBySideTables">
+        <div class="child2">
+            <h6 id="visualSaccades">Visual Saccades:</h6>
+            <textarea th:replace="fragments :: textArea" th:field="${visualSaccades}" id="childSensoryTextAreas"></textarea>
+        </div>
+    </div>
+    <div class="sideBySideTables">
+        <div class="child2">
+            <h6 id="convergenceDivergence">Convergence/Divergence:</h6>
+            <textarea th:replace="fragments :: textArea" th:field="${convergenceDivergence}" id="childSensoryTextAreas"></textarea>
+        </div>
+    </div>
+    <div class="sectionHeaders">
+        <h5 class="childSectionHeaders">SUMMARY/PLAN:</h5>
+    </div>
+    <div class="sideBySideTables">
+        <div class="child2">
+            <table class="table">
+                <tr>
+                    <td>Frequency of OT:</td>
+                    <td>
+                        <div th:insert="fragments :: dropDownMenu(${frequencyOfOT})"  th:field="${frequencyOfOT}"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Duration of OT:</td>
+                    <td>
+                        <select th:field="${durationOfOT}">
+                            <option value="3 months">3 Months</option>
+                            <option value="6 months">6 Months</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="sectionHeaders">
+        <h5 class="childSectionHeaders">OCCUPATIONAL THERAPY GOALS:</h5>
+    </div>
+    <div class="sideBySideTables2">
+        <div class="child2">
+            <table class="table table-striped">
+                <tr>
+                    <td>1.</td>
+                    <td th:replace="fragments ::  freeText" th:field="${goalOne}"></td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td th:replace="fragments ::  freeText" th:field="${goalTwo}"></td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td th:replace="fragments ::  freeText" th:field="${goalThree}"></td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td th:replace="fragments ::  freeText" th:field="${goalFour}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="sideBySideTables">
+        <div class="evaluatorName">
+            <select class="evaluatorSelect" th:field="${therapist}">
+                <option th:each="therapist : ${allTherapists}" th:text="${therapist.key}" th:value="${therapist.key}"></option>
+            </select><br>
+            <p class="h6">Evaluator Printed Name</p>
+        </div>
+        <div class="evaluatorName">
+            <select class="evaluatorSelect">
+                <option >Signature to be determined later  </option>
+            </select><br>
+            <p class="h6">Evaluator Signature</p>
+        </div>
+    </div>
+    <div class="form-group"></div>
+    <input type="submit" value="Submit" class="btn btn-success">
+    </div>
+</form>
 </body>
 </html>

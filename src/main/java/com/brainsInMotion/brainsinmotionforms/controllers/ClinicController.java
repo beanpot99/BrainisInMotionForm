@@ -4,10 +4,7 @@ import com.brainsInMotion.brainsinmotionforms.models.*;
 import com.brainsInMotion.brainsinmotionforms.models.clinicEnums.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,12 +44,14 @@ public class ClinicController {
     model.addAttribute("frequencyOfOT", FrequencyOfOT.values());
     model.addAttribute("childSensoryTwoCategories", childSensoryTwoCategories);
     model.addAttribute("allTherapists",allTherapists);
+    model.addAttribute("activitiesOfDailyLiving", ActivitiesOfDailyLiving.values());
+    ClinicForm clinicForm = new ClinicForm();
+    model.addAttribute("clinicForm", clinicForm);
         return "forms/clinic";
     }
-    @PostMapping(value="clinic/{therapistName}")
-    public String autoFillTherapist(Model model, @PathVariable String therapistName){
-
-
-        return "clinic";
+    @PostMapping(value="/clinic/complete")
+    public String submitForm(@ModelAttribute("clinicForm") ClinicForm clinicForm){
+    System.out.println(clinicForm);
+    return "forms/completeClinic";
     }
 }

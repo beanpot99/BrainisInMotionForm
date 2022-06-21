@@ -18,13 +18,13 @@ public class ClinicForm {
     @GeneratedValue
     private int id;
 
-    private Date dateOfEval;
+    private String dateOfEval;
     private String patientName;
     private String address;
     private String parentName;
     private String diagnosis;
     private String therapistChoice;
-    private Date DOB;
+    private String DOB;
     private String clientPhone;
     private String physicianName;
     private String payer;
@@ -63,7 +63,7 @@ public class ClinicForm {
     private String durationOfOT;
     private String therapist;
 
-    public ClinicForm(Date dateOfEval, String patientName, String address, String parentName, String diagnosis, String therapistChoice, Date DOB, String clientPhone, String physicianName, String payer, String referral, String medicalHistory, String assessmentMethod, String behaviorObservations, String fineMotor, String communicationLevel, String educationLevel, String strengthAndRangeOfMotion, String activitiesOfDailyLiving, Boolean fearParalysisPresent, Boolean fearParalysisIntegrated, Boolean moroPresent, Boolean moroIntegrated, Boolean atnrPresent, Boolean atnrIntegrated, Boolean stnrPresent, Boolean stnrIntegrated, Boolean tlrPresent, Boolean tlrIntegrated, Boolean spinalGalantPresent, Boolean spinalGalantIntegrated, Boolean palmarPresent, Boolean palmarIntegrated, String visualTracking, String visualSaccades, String convergenceDivergence, String frequencyOfOT, String goalOne, String goalTwo, String goalThree, String goalFour, String durationOfOT, String therapist) {
+    public ClinicForm(String dateOfEval, String patientName, String address, String parentName, String diagnosis, String therapistChoice, String DOB, String clientPhone, String physicianName, String payer, String referral, String medicalHistory, String assessmentMethod, String behaviorObservations, String fineMotor, String communicationLevel, String educationLevel, String strengthAndRangeOfMotion, String activitiesOfDailyLiving, Boolean fearParalysisPresent, Boolean fearParalysisIntegrated, Boolean moroPresent, Boolean moroIntegrated, Boolean atnrPresent, Boolean atnrIntegrated, Boolean stnrPresent, Boolean stnrIntegrated, Boolean tlrPresent, Boolean tlrIntegrated, Boolean spinalGalantPresent, Boolean spinalGalantIntegrated, Boolean palmarPresent, Boolean palmarIntegrated, String visualTracking, String visualSaccades, String convergenceDivergence, String frequencyOfOT, String goalOne, String goalTwo, String goalThree, String goalFour, String durationOfOT, String therapist) {
         this.dateOfEval = dateOfEval;
         this.patientName = patientName;
         this.address = address;
@@ -118,11 +118,11 @@ public class ClinicForm {
     public int getId() {
         return id;
     }
-    public Date getDateOfEval() {
+    public String getDateOfEval() {
         return dateOfEval;
     }
 
-    public void setDateOfEval(Date dateOfEval) {
+    public void setDateOfEval(String dateOfEval) {
         this.dateOfEval = dateOfEval;
     }
 
@@ -166,11 +166,11 @@ public class ClinicForm {
         this.therapistChoice = therapistChoice;
     }
 
-    public Date getDOB() {
+    public String getDOB() {
         return DOB;
     }
 
-    public void setDOB(Date DOB) {
+    public void setDOB(String DOB) {
         this.DOB = DOB;
     }
 

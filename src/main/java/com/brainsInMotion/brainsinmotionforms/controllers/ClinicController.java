@@ -33,7 +33,7 @@ public class ClinicController {
 
         allTherapists.put("Sara Thompson, COTA", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7RutFJiBAZpW9ehLHVZGI7h8F8KIYQsV9X9v6V8vZ6XRBYf-m5EnXOb-Xbbmd23LjC0U&usqp=CAU");
     }
-    @GetMapping("clinic")
+    @GetMapping
     public String displayClinicForm(Model model){
     model.addAttribute("educationLevel", EducationLevel.values());
     model.addAttribute("communicationLevel", CommunicationStatus.values());
@@ -49,8 +49,8 @@ public class ClinicController {
     model.addAttribute("clinicForm", clinicForm);
         return "clinic";
     }
-    @PostMapping(value="clinic/complete")
-    public String submitForm(@ModelAttribute("clinicForm") ClinicForm clinicForm){
+    @PostMapping(value="complete")
+    public String submitForm(@ModelAttribute ClinicForm clinicForm){
     System.out.println(clinicForm);
     return "completeClinic";
     }

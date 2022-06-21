@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 @Controller
-@RequestMapping("forms")
+@RequestMapping("clinic")
 public class ClinicController {
     static HashMap<String, String> childSensoryTwoCategories = new HashMap<>();
     static HashMap<String, String> allTherapists = new HashMap<>();
@@ -47,11 +47,11 @@ public class ClinicController {
     model.addAttribute("activitiesOfDailyLiving", ActivitiesOfDailyLiving.values());
     ClinicForm clinicForm = new ClinicForm();
     model.addAttribute("clinicForm", clinicForm);
-        return "forms/clinic";
+        return "clinic";
     }
-    @PostMapping(value="/clinic/complete")
+    @PostMapping(value="clinic/complete")
     public String submitForm(@ModelAttribute("clinicForm") ClinicForm clinicForm){
     System.out.println(clinicForm);
-    return "forms/completeClinic";
+    return "completeClinic";
     }
 }

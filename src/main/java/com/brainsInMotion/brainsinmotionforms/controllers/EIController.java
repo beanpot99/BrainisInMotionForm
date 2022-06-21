@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.HashMap;
 
 @Controller
-@RequestMapping("forms")
+@RequestMapping("EI")
 public class EIController {
     static HashMap<String, String> toddlerSensoryQuadrants = new HashMap<>();
     static HashMap<String, String > toddlerSensoryBehavioral = new HashMap<>();
@@ -28,12 +28,12 @@ public class EIController {
         toddlerSensoryBehavioral.put("Oral", "/35");
         toddlerSensoryBehavioral.put("Behavioral", "/30");
     }
-    @GetMapping("EI")
+    @GetMapping
     public String displayEIForm(Model model){
         model.addAttribute("languages", Languages.values());
         model.addAttribute("assessLocation", AssessmentLocation.values());
         model.addAttribute("toddlerSensoryQuadrants",toddlerSensoryQuadrants);
         model.addAttribute("toddlerSensoryBehavioral",toddlerSensoryBehavioral);
-        return "forms/EI";
+        return "EI";
     }
 }

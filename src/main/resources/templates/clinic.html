@@ -6,7 +6,7 @@
 <header id="clinicHeader">
     <h3 id="clinicHeading">Initial Occupational Therapy Evaluation</h3>
     </header>
-<form method="post" th:action="@{/clinic/complete}" th:object="${clinicForm}">
+<form method="post" th:action="@{/clinic/complete}" th:object="${clinicForm}" modelAttribute = "clinicForm">
     <div class="sideBySideTables">
         <div class="child">
             <table class="table table-striped">
@@ -58,7 +58,7 @@
                 <tr>
                     <td>Payer:</td>
                     <td>
-                        <select th:field="*{payer}">
+                        <select class="form-control" th:field="*{payer}">
                             <option value="Insurance" name="insuranceClinic" >Insurance</option>
                             <option value="Private Pay" name="privatePayClinic" >Private Pay</option>
                         </select>
@@ -260,8 +260,8 @@
 </div>
 <div class="sideBySideTables">
     <div class="evaluatorName">
-        <select class="evaluatorSelect" th:field="*{therapist}">
-            <option th:each="therapist : ${allTherapists}" th:text="${therapist.key}" th:value="${therapist.key}"></option>
+        <select class="form-control" th:field="*{therapist}" id="evaluatorSelect">
+            <option th:each="therapist : ${allTherapists}" th:field="*{therapist} "th:text="${therapist.key}" th:value="${therapist.key}"></option>
         </select><br>
         <p class="h6">Evaluator Printed Name</p>
     </div>
@@ -274,6 +274,9 @@
 </div>
     <div class="form-group"></div>
     <input type="submit" value="Submit" class="btn btn-success">
+    </div>
+    <div class="form-group"></div>
+    <input type="reset" value="Reset" class="btn btn-success">
     </div>
 </form>
 </body>

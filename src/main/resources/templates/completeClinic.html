@@ -11,27 +11,29 @@
             <table class="table table-striped">
                 <tr>
                     <td>Date of Eval:</td>
-                    <td th:text="${dateOfEval}"></td>
+                    <td>
+                        <p th:text="${clinicForm.dateOfEval}"></p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Patient Name:</td>
-                    <td th:text="${patientName}"></td>
+                    <td th:text="${clinicForm.patientName}"></td>
                 </tr>
                 <tr>
                     <td>Address:</td>
-                    <td th:text="${address}"></td>
+                    <td th:text="${clinicForm.address}"></td>
                 </tr>
                 <tr>
                     <td>Parent/Guardian:</td>
-                    <td th:text="${parentName}"></td>
+                    <td th:text="${clinicForm.parentName}"></td>
                 </tr>
                 <tr>
                     <td>Diagnosis:</td>
-                    <td th:text="${diagnosis}"></td>
+                    <td th:text="${clinicForm.diagnosis}"></td>
                 </tr>
                 <tr>
                     <td>Therapist:</td>
-                    <td <td th:text="${therapistChoice}"></td>></td>
+                    <td  th:text="${clinicForm.therapistChoice}"></td>
                 </tr>
             </table>
         </div>
@@ -39,24 +41,19 @@
             <table class="table table-striped">
                 <tr>
                     <td>DOB:</td>
-                    <td><input type="date" value="" th:field="${DOB}"></td>
+                    <td th:text="${clinicForm.DOB}"></td>
                 </tr>
                 <tr>
                     <td>Phone:</td>
-                    <td><input type="text" value="(217)" th:field="${clientPhone}"></td>
+                    <td th:text="${clinicForm.clientPhone}"></td>
                 </tr>
                 <tr>
                     <td>Physician:</td>
-                    <td><input type="text" value="" th:field="${physicianName}"></td>
+                    <td th:text="${clinicForm.physicianName}"></td>
                 </tr>
                 <tr>
                     <td>Payer:</td>
-                    <td>
-                        <select th:field="${payer}">
-                            <option value="Insurance" name="insuranceClinic" th:text="Insurance"></option>
-                            <option value="Private Pay" name="privatePayClinic" th:text="Private Pay"> </option>
-                        </select>
-                    </td>
+                    <td th:text="${clinicForm.payer}"></td>
                 </tr>
                 <tr>
                     <td>NPI:</td>
@@ -70,7 +67,7 @@
     </div>
     <div class="sideBySideTables">
         <div class="child2">
-            <textarea th:replace="fragments :: textArea" th:field="${referral}"></textarea>
+            <p th:text="${clinicForm.referral}"></p>
         </div><br>
     </div>
     <div class="sectionHeaders">
@@ -78,7 +75,7 @@
     </div>
     <div class="sideBySideTables">
         <div class="child2">
-            <textarea th:replace="fragments :: textArea" th:field="${medicalHistory}"></textarea>
+            <p th:text="${clinicForm.medicalHistory}"></p>
         </div>
     </div>
     <div class="sectionHeaders">
@@ -89,21 +86,15 @@
             <table class="table table-striped">
                 <tr>
                     <td>Assessment Method:</td>
-                    <td>
-                        <div th:insert="fragments :: selectAllThatApply(${assessmentMethod})" id="checkBoxes" th:field="${assessmentMethod}"></div>
-                    </td>
+                    <td th:text="${clinicForm.assessmentMethod}"</td>
                 </tr>
                 <tr>
                     <td>Behavioral Observations:</td>
-                    <td>
-                        <div th:insert="fragments :: selectAllThatApply(${behaviorObservations})" id="checkBoxes" th:field="${behaviorObservations}"></div>
-                    </td>
+                    <td th:text="${clinicForm.behaviorObservations}"></td>
                 </tr>
                 <tr>
                     <td>Fine Motor Skills:</td>
-                    <td>
-                        <div th:insert="fragments :: selectAllThatApply(${fineMotor})" id="checkBoxes" th:field="${fineMotor}"></div>
-                    </td>
+                    <td th:field="${clinicForm.fineMotor}"></td>
                 </tr>
             </table>
         </div>
@@ -111,27 +102,19 @@
             <table class="table table-striped">
                 <tr>
                     <td>Communication Status:</td>
-                    <td>
-                        <div th:insert="fragments :: dropDownMenu(${communicationLevel})"  th:field="${communicationLevel}"></div>
-                    </td>
+                    <td th:text="${clinicForm.communicationLevel}"></td>
                 </tr>
                 <tr>
                     <td>Education Level:</td>
-                    <td>
-                        <div th:insert="fragments :: dropDownMenu(${educationLevel})"  th:field="${educationLevel}"></div>
-                    </td>
+                    <td th:text="${clinicForm.educationLevel}"></td>
                 </tr>
                 <tr>
                     <td>Strength/Range of Motion:</td>
-                    <td>
-                        <div th:insert="fragments :: dropDownMenu(${strengthAndRangeOfMotion})"  th:field="${strengthAndRangeOfMotion}"></div>
-                    </td>
+                    <td th:text="${clinicForm.strengthAndRangeOfMotion}"></td>
                 </tr>
                 <tr>
                     <td>Activities of Daily Living:</td>
-                    <td>
-                        <div th:insert="fragments :: selectAllThatApply(${activitiesOfDailyLiving})" id="checkBoxes" th:field="${activitiesOfDailyLiving}"></div>
-                    </td>
+                    <td th:text="${clinicForm.activitiesOfDailyLiving}"></td>
                 </tr>
             </table>
         </div>
@@ -188,19 +171,19 @@
         <div class="child2">
 
             <h6 id="visualTracking">Visual Tracking:</h6>
-            <textarea th:replace="fragments :: textArea" th:field="${visualTracking}" id="childSensoryTextAreas"></textarea>
+            <p th:text="${clinicForm.visualTracking}"></p>
         </div><br>
     </div>
     <div class="sideBySideTables">
         <div class="child2">
             <h6 id="visualSaccades">Visual Saccades:</h6>
-            <textarea th:replace="fragments :: textArea" th:field="${visualSaccades}" id="childSensoryTextAreas"></textarea>
+            <p th:text="${clinicForm.visualSaccades}"></p>
         </div>
     </div>
     <div class="sideBySideTables">
         <div class="child2">
             <h6 id="convergenceDivergence">Convergence/Divergence:</h6>
-            <textarea th:replace="fragments :: textArea" th:field="${convergenceDivergence}" id="childSensoryTextAreas"></textarea>
+            <p th:text="${clinicForm.convergenceDivergence}"></p>
         </div>
     </div>
     <div class="sectionHeaders">
@@ -211,18 +194,11 @@
             <table class="table">
                 <tr>
                     <td>Frequency of OT:</td>
-                    <td>
-                        <div th:insert="fragments :: dropDownMenu(${frequencyOfOT})"  th:field="${frequencyOfOT}"></div>
-                    </td>
+                    <td th:text="${clinicForm.frequencyOfOT}"></td>
                 </tr>
                 <tr>
                     <td>Duration of OT:</td>
-                    <td>
-                        <select th:field="${durationOfOT}">
-                            <option value="3 months">3 Months</option>
-                            <option value="6 months">6 Months</option>
-                        </select>
-                    </td>
+                    <td th:text="${clinicForm.durationOfOT}"></td>
                 </tr>
             </table>
         </div>
@@ -235,28 +211,27 @@
             <table class="table table-striped">
                 <tr>
                     <td>1.</td>
-                    <td th:replace="fragments ::  freeText" th:field="${goalOne}"></td>
+                    <td th:text="${clinicForm.goalOne}"></td>
                 </tr>
                 <tr>
                     <td>2.</td>
-                    <td th:replace="fragments ::  freeText" th:field="${goalTwo}"></td>
+                    <td th:text="${clinicForm.goalTwo}"></td>
                 </tr>
                 <tr>
                     <td>3.</td>
-                    <td th:replace="fragments ::  freeText" th:field="${goalThree}"></td>
+                    <td th:text="${clinicForm.goalThree}"></td>
                 </tr>
                 <tr>
                     <td>4.</td>
-                    <td th:replace="fragments ::  freeText" th:field="${goalFour}"></td>
+                    <td th:text="${clinicForm.goalFour}"></td>
                 </tr>
             </table>
         </div>
     </div>
     <div class="sideBySideTables">
         <div class="evaluatorName">
-            <select class="evaluatorSelect" th:field="${therapist}">
-                <option th:each="therapist : ${allTherapists}" th:text="${therapist.key}" th:value="${therapist.key}"></option>
-            </select><br>
+            <p th:text="${clinicForm.therapist}">
+            </p><br>
             <p class="h6">Evaluator Printed Name</p>
         </div>
         <div class="evaluatorName">

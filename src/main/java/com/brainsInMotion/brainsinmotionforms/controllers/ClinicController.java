@@ -2,16 +2,22 @@ package com.brainsInMotion.brainsinmotionforms.controllers;
 
 import com.brainsInMotion.brainsinmotionforms.models.*;
 import com.brainsInMotion.brainsinmotionforms.models.clinicEnums.*;
+import com.brainsInMotion.brainsinmotionforms.models.data.ClinicFormRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 @Controller
 @RequestMapping("clinic")
 public class ClinicController {
+    @Autowired
+    private ClinicFormRepository clinicFormRepository;
     static HashMap<String, String> childSensoryTwoCategories = new HashMap<>();
     static HashMap<String, String> allTherapists = new HashMap<>();
     public ClinicController(){
@@ -45,13 +51,16 @@ public class ClinicController {
     model.addAttribute("childSensoryTwoCategories", childSensoryTwoCategories);
     model.addAttribute("allTherapists",allTherapists);
     model.addAttribute("activitiesOfDailyLiving", ActivitiesOfDailyLiving.values());
-    ClinicForm clinicForm = new ClinicForm();
-    model.addAttribute("clinicForm", clinicForm);
+    model.addAttribute("clinicForm", new ClinicForm());
         return "clinic";
     }
     @PostMapping(value="complete")
-    public String submitForm(@ModelAttribute ClinicForm clinicForm){
-    System.out.println(clinicForm);
+    public String submitForm(@Valid @ModelAttribute("clinicForm") ClinicForm clinicForm, Errors errors, Model model){
+    if(errors.hasErrors()){
+        return "clinic";
+    }
+    model.addAttribute("clinicForm", clinicForm);
+    clinicFormRepository.save(clinicForm);
     return "completeClinic";
     }
 }

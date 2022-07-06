@@ -77,7 +77,7 @@ justify-content:left;
 width:100%;
 }
 
-.evaluatorSelect{
+#evaluatorSelect{
 border-bottom: 3px solid black;
 padding-right:100px;
 }

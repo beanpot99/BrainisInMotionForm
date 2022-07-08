@@ -261,7 +261,7 @@
 <div class="sideBySideTables">
     <div class="evaluatorName">
         <select class="form-control" th:field="*{therapist}" id="evaluatorSelect">
-            <option th:each="therapist : ${allTherapists}" th:field="*{therapist} "th:text="${therapist.key}" th:value="${therapist.key}"></option>
+            <option th:each="therapist : ${allTherapists}" th:field="*{therapist}" th:text="${therapist.key}" th:value="${therapist.key}"></option>
         </select><br>
         <p class="h6">Evaluator Printed Name</p>
     </div>

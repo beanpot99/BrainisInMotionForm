@@ -63,4 +63,9 @@ public class ClinicController {
     clinicFormRepository.save(clinicForm);
     return "completeClinic";
     }
+    @GetMapping("completeClinic")
+    public String displayCompleteClinic(Model model){
+
+        return "completeClinic";
+    }
 }

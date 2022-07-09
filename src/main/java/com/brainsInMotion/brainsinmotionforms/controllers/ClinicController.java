@@ -4,6 +4,7 @@ import com.brainsInMotion.brainsinmotionforms.models.*;
 import com.brainsInMotion.brainsinmotionforms.models.clinicEnums.*;
 import com.brainsInMotion.brainsinmotionforms.models.data.ClinicFormRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -12,12 +13,15 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("clinic")
 public class ClinicController {
     @Autowired
     private ClinicFormRepository clinicFormRepository;
+    @Autowired
+    private PdfGeneratorUtil pdfGeneratorUtil;
     static HashMap<String, String> childSensoryTwoCategories = new HashMap<>();
     static HashMap<String, String> allTherapists = new HashMap<>();
     public ClinicController(){
@@ -67,5 +71,14 @@ public class ClinicController {
     public String displayCompleteClinic(Model model){
 
         return "completeClinic";
+    }
+    @GetMapping("clinic/{clinicId}")
+    public ResponseEntity getClinicPdf(@PathVariable Integer clinicId) throws Exception {
+        ClinicForm clinicForm = clinicFormRepository.findById(clinicId).orElse(null);
+        if(clinicForm== null){
+            throw new Exception(("Form not completed"));
+            Map<String, Object> clinicMap = new HashMap<>();
+
+        }
     }
 }

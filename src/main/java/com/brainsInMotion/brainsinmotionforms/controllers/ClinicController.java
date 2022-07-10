@@ -9,11 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.xhtmlrenderer.resource.Resource;
+
+import java.util.Map;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.Map;
+
 
 @Controller
 @RequestMapping("clinic")
@@ -78,7 +81,90 @@ public class ClinicController {
         if(clinicForm== null){
             throw new Exception(("Form not completed"));
             Map<String, Object> clinicMap = new HashMap<>();
+            clinicMap.put("dateOfEval", clinicForm.getDateOfEval());
+            clinicMap.put("patientName", clinicForm.getPatientName());
 
+            clinicMap.put("address", clinicForm.getAddress());
+
+            clinicMap.put("parentName", clinicForm.getParentName());
+
+            clinicMap.put("diagnosis", clinicForm.getDiagnosis());
+
+            clinicMap.put("therapistChoice", clinicForm.getTherapistChoice());
+            clinicMap.put("DOB", clinicForm.getDOB());
+
+            clinicMap.put("clientPhone", clinicForm.getClientPhone());
+
+            clinicMap.put("physicianName", clinicForm.getPhysicianName());
+
+            clinicMap.put("payer", clinicForm.getPayer());
+
+            clinicMap.put("referral", clinicForm.getReferral());
+
+            clinicMap.put("medicalHistory", clinicForm.getMedicalHistory());
+            clinicMap.put("assessmentMethod", clinicForm.getAssessmentMethod());
+
+            clinicMap.put("behaviorObservations", clinicForm.getBehaviorObservations());
+
+            clinicMap.put("fineMotor", clinicForm.getFineMotor());
+
+            clinicMap.put("communicationLevel", clinicForm.getCommunicationLevel());
+
+            clinicMap.put("educationLevel", clinicForm.getEducationLevel());
+
+            clinicMap.put("strengthAndRangeOfMotion", clinicForm.getStrengthAndRangeOfMotion());
+
+            clinicMap.put("activitiesOfDailyLiving", clinicForm.getActivitiesOfDailyLiving());
+            clinicMap.put("fearParalysisPresent", clinicForm.getFearParalysisPresent());
+
+            clinicMap.put("fearParalysisIntegrated", clinicForm.getFearParalysisIntegrated());
+
+            clinicMap.put("moroPresent", clinicForm.getMoroPresent());
+
+            clinicMap.put("moroIntegrated", clinicForm.getMoroIntegrated());
+
+            clinicMap.put("atnrPresent", clinicForm.getAtnrPresent());
+
+            clinicMap.put("atnrIntegrated", clinicForm.getAtnrIntegrated());
+
+            clinicMap.put("stnrIntegrated", clinicForm.getStnrIntegrated());
+
+            clinicMap.put("tlrPresent", clinicForm.getTlrPresent());
+
+            clinicMap.put("tlrIntegrated", clinicForm.getTlrIntegrated());
+
+            clinicMap.put("spinalGalantPresent", clinicForm.getSpinalGalantPresent());
+
+            clinicMap.put("spinalGalantIntegrated", clinicForm.getSpinalGalantIntegrated());
+
+            clinicMap.put("palmarPresent", clinicForm.getPalmarPresent());
+
+            clinicMap.put("palmarIntegrated", clinicForm.getPalmarIntegrated());
+
+            clinicMap.put("visualTracking", clinicForm.getVisualTracking());
+
+            clinicMap.put("visualSaccades", clinicForm.getVisualSaccades());
+
+            clinicMap.put("convergenceDivergence", clinicForm.getConvergenceDivergence());
+
+            clinicMap.put("frequencyOfOT", clinicForm.getFrequencyOfOT());
+
+            clinicMap.put("goalOne", clinicForm.getGoalOne());
+
+            clinicMap.put("goalTwo", clinicForm.getGoalTwo());
+
+            clinicMap.put("goalThree", clinicForm.getGoalThree());
+
+            clinicMap.put("goalFour", clinicForm.getGoalFour());
+
+            clinicMap.put("durationOfOT", clinicForm.getDurationOfOT());
+            clinicMap.put("therapist", clinicForm.getTherapist());
+        Resource resource = null;
+            try{
+                String property = "java.io.tmpdir";
+                String tempDir = System.getProperty(property);
+                String fileNameUrl = pdfGeneratorUtil.createPdf("Clinicform", clinicMap);
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 
 @Controller
@@ -93,107 +94,118 @@ public class ClinicController {
     }
 
     @GetMapping("clinic/{clinicId}")
-    public ResponseEntity getClinicPdf(@PathVariable Integer clinicId) throws Exception {
-        ClinicForm clinicForm = clinicFormRepository.findById(clinicId).orElse(null);
-        if (clinicForm == null) {
-            throw new Exception(("Form not completed"));
+    public String displayViewClinicForms(Model model, @PathVariable(required = false) Integer clinicId ) {
+        Optional<ClinicForm> result = clinicFormRepository.findById(clinicId);
+        if (result.isPresent()) {
+            ClinicForm clinicForm = (ClinicForm) result.get();
+            model.addAttribute("clinicForm", clinicForm);
+            return "completeClinic";
+        } else {
+            return "index";
         }
-            Map<String, Object> clinicMap = new HashMap<>();
-            clinicMap.put("dateOfEval", clinicForm.getDateOfEval());
-            clinicMap.put("patientName", clinicForm.getPatientName());
-
-            clinicMap.put("address", clinicForm.getAddress());
-
-            clinicMap.put("parentName", clinicForm.getParentName());
-
-            clinicMap.put("diagnosis", clinicForm.getDiagnosis());
-
-            clinicMap.put("therapistChoice", clinicForm.getTherapistChoice());
-            clinicMap.put("DOB", clinicForm.getDOB());
-
-            clinicMap.put("clientPhone", clinicForm.getClientPhone());
-
-            clinicMap.put("physicianName", clinicForm.getPhysicianName());
-
-            clinicMap.put("payer", clinicForm.getPayer());
-
-            clinicMap.put("referral", clinicForm.getReferral());
-
-            clinicMap.put("medicalHistory", clinicForm.getMedicalHistory());
-            clinicMap.put("assessmentMethod", clinicForm.getAssessmentMethod());
-
-            clinicMap.put("behaviorObservations", clinicForm.getBehaviorObservations());
-
-            clinicMap.put("fineMotor", clinicForm.getFineMotor());
-
-            clinicMap.put("communicationLevel", clinicForm.getCommunicationLevel());
-
-            clinicMap.put("educationLevel", clinicForm.getEducationLevel());
-
-            clinicMap.put("strengthAndRangeOfMotion", clinicForm.getStrengthAndRangeOfMotion());
-
-            clinicMap.put("activitiesOfDailyLiving", clinicForm.getActivitiesOfDailyLiving());
-            clinicMap.put("fearParalysisPresent", clinicForm.getFearParalysisPresent());
-
-            clinicMap.put("fearParalysisIntegrated", clinicForm.getFearParalysisIntegrated());
-
-            clinicMap.put("moroPresent", clinicForm.getMoroPresent());
-
-            clinicMap.put("moroIntegrated", clinicForm.getMoroIntegrated());
-
-            clinicMap.put("atnrPresent", clinicForm.getAtnrPresent());
-
-            clinicMap.put("atnrIntegrated", clinicForm.getAtnrIntegrated());
-
-            clinicMap.put("stnrIntegrated", clinicForm.getStnrIntegrated());
-
-            clinicMap.put("tlrPresent", clinicForm.getTlrPresent());
-
-            clinicMap.put("tlrIntegrated", clinicForm.getTlrIntegrated());
-
-            clinicMap.put("spinalGalantPresent", clinicForm.getSpinalGalantPresent());
-
-            clinicMap.put("spinalGalantIntegrated", clinicForm.getSpinalGalantIntegrated());
-
-            clinicMap.put("palmarPresent", clinicForm.getPalmarPresent());
-
-            clinicMap.put("palmarIntegrated", clinicForm.getPalmarIntegrated());
-
-            clinicMap.put("visualTracking", clinicForm.getVisualTracking());
-
-            clinicMap.put("visualSaccades", clinicForm.getVisualSaccades());
-
-            clinicMap.put("convergenceDivergence", clinicForm.getConvergenceDivergence());
-
-            clinicMap.put("frequencyOfOT", clinicForm.getFrequencyOfOT());
-
-            clinicMap.put("goalOne", clinicForm.getGoalOne());
-
-            clinicMap.put("goalTwo", clinicForm.getGoalTwo());
-
-            clinicMap.put("goalThree", clinicForm.getGoalThree());
-
-            clinicMap.put("goalFour", clinicForm.getGoalFour());
-
-            clinicMap.put("durationOfOT", clinicForm.getDurationOfOT());
-            clinicMap.put("therapist", clinicForm.getTherapist());
-
-//            }catch(Exception e){
-//                e.printStackTrace();
-//            }
-            Resource resource = null;
-            //try{
-            String property = "java.io.tmpdir";
-            String tempDir = System.getProperty(property);
-            String fileNameUrl = pdfGeneratorUtil.createPdf("Clinicform", clinicMap);
-            Path path = Paths.get(tempDir + "/" + fileNameUrl);
-            resource = (Resource) new UrlResource(path.toUri());
-            return ResponseEntity.ok().contentType(MediaType.parseMediaType(MediaType.APPLICATION_PDF_VALUE))
-
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileNameUrl + "\"")
-
-                    .body(resource);
-        }
-
     }
+        }
+//    public ResponseEntity getClinicPdf(@PathVariable Integer clinicId) throws Exception {
+//        ClinicForm clinicForm = clinicFormRepository.findById(clinicId).orElse(null);
+//        if (clinicForm == null) {
+//            throw new Exception(("Form not completed"));
+//        }
+//            Map<String, Object> clinicMap = new HashMap<>();
+//            clinicMap.put("dateOfEval", clinicForm.getDateOfEval());
+//            clinicMap.put("patientName", clinicForm.getPatientName());
+//
+//            clinicMap.put("address", clinicForm.getAddress());
+//
+//            clinicMap.put("parentName", clinicForm.getParentName());
+//
+//            clinicMap.put("diagnosis", clinicForm.getDiagnosis());
+//
+//            clinicMap.put("therapistChoice", clinicForm.getTherapistChoice());
+//            clinicMap.put("DOB", clinicForm.getDOB());
+//
+//            clinicMap.put("clientPhone", clinicForm.getClientPhone());
+//
+//            clinicMap.put("physicianName", clinicForm.getPhysicianName());
+//
+//            clinicMap.put("payer", clinicForm.getPayer());
+//
+//            clinicMap.put("referral", clinicForm.getReferral());
+//
+//            clinicMap.put("medicalHistory", clinicForm.getMedicalHistory());
+//            clinicMap.put("assessmentMethod", clinicForm.getAssessmentMethod());
+//
+//            clinicMap.put("behaviorObservations", clinicForm.getBehaviorObservations());
+//
+//            clinicMap.put("fineMotor", clinicForm.getFineMotor());
+//
+//            clinicMap.put("communicationLevel", clinicForm.getCommunicationLevel());
+//
+//            clinicMap.put("educationLevel", clinicForm.getEducationLevel());
+//
+//            clinicMap.put("strengthAndRangeOfMotion", clinicForm.getStrengthAndRangeOfMotion());
+//
+//            clinicMap.put("activitiesOfDailyLiving", clinicForm.getActivitiesOfDailyLiving());
+//            clinicMap.put("fearParalysisPresent", clinicForm.getFearParalysisPresent());
+//
+//            clinicMap.put("fearParalysisIntegrated", clinicForm.getFearParalysisIntegrated());
+//
+//            clinicMap.put("moroPresent", clinicForm.getMoroPresent());
+//
+//            clinicMap.put("moroIntegrated", clinicForm.getMoroIntegrated());
+//
+//            clinicMap.put("atnrPresent", clinicForm.getAtnrPresent());
+//
+//            clinicMap.put("atnrIntegrated", clinicForm.getAtnrIntegrated());
+//
+//            clinicMap.put("stnrIntegrated", clinicForm.getStnrIntegrated());
+//
+//            clinicMap.put("tlrPresent", clinicForm.getTlrPresent());
+//
+//            clinicMap.put("tlrIntegrated", clinicForm.getTlrIntegrated());
+//
+//            clinicMap.put("spinalGalantPresent", clinicForm.getSpinalGalantPresent());
+//
+//            clinicMap.put("spinalGalantIntegrated", clinicForm.getSpinalGalantIntegrated());
+//
+//            clinicMap.put("palmarPresent", clinicForm.getPalmarPresent());
+//
+//            clinicMap.put("palmarIntegrated", clinicForm.getPalmarIntegrated());
+//
+//            clinicMap.put("visualTracking", clinicForm.getVisualTracking());
+//
+//            clinicMap.put("visualSaccades", clinicForm.getVisualSaccades());
+//
+//            clinicMap.put("convergenceDivergence", clinicForm.getConvergenceDivergence());
+//
+//            clinicMap.put("frequencyOfOT", clinicForm.getFrequencyOfOT());
+//
+//            clinicMap.put("goalOne", clinicForm.getGoalOne());
+//
+//            clinicMap.put("goalTwo", clinicForm.getGoalTwo());
+//
+//            clinicMap.put("goalThree", clinicForm.getGoalThree());
+//
+//            clinicMap.put("goalFour", clinicForm.getGoalFour());
+//
+//            clinicMap.put("durationOfOT", clinicForm.getDurationOfOT());
+//            clinicMap.put("therapist", clinicForm.getTherapist());
+//
+////            }catch(Exception e){
+////                e.printStackTrace();
+////            }
+//            Resource resource = null;
+//            //try{
+//            String property = "java.io.tmpdir";
+//            String tempDir = System.getProperty(property);
+//            String fileNameUrl = pdfGeneratorUtil.createPdf("Clinicform", clinicMap);
+//            Path path = Paths.get(tempDir + "/" + fileNameUrl);
+//            resource = (Resource) new UrlResource(path.toUri());
+//            return ResponseEntity.ok().contentType(MediaType.parseMediaType(MediaType.APPLICATION_PDF_VALUE))
+//
+//                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileNameUrl + "\"")
+//
+//                    .body(resource);
+//        }
+
+
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head th:replace="fragments :: head"></head>
+</head>
+<header id="clinicHeader">
+    <h3 id="clinicHeading">All Clinic Forms</h3>
+</header>
+<body>
+<div class="container body-content">
+   <table class="formListing">
+    <tr th:each="form : ${clinicForms}">
+        <td>
+            <p>
+                <a th:href="@{'clinic/' + ${form.id}}" th:text="${form.patientName}"></a>
+            </p>
+        </td>
+    </tr>
+   </table>
+</div>
+</body>
+</html>

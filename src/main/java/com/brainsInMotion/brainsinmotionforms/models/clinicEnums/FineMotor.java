@@ -6,10 +6,7 @@ public enum FineMotor {
     OPTION3("Grasping"),
     OPTION4("Whole hand"),
     OPTION5("Uses a fisted grasp"),
-    OPTION6("Grasps writing tool with all fingertips on tool"),
-    OPTION7("option 4"),
-    OPTION8("option 4"),
-    OPTION9("option 4");
+    OPTION6("Grasps writing tool with all fingertips on tool");
     private final String name;
     FineMotor(String name){
         this.name=name;

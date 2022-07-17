@@ -3,7 +3,7 @@ package com.brainsInMotion.brainsinmotionforms.models.clinicEnums;
 public enum EducationLevel {
     LESSTHANELEMENTARY("<Elementary"),
     ELEMENTARY("Elementary"),
-    MIDDLE("Midlle"),
+    MIDDLE("Middle"),
     SOMEHIGHSCHOOL("Some High School"),
     HIGHSCHOOLDIPLOMA("High School Diploma"),
     SOMECOLLEGE("Some College"),

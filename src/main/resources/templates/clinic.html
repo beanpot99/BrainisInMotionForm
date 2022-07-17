@@ -6,29 +6,30 @@
 <header id="clinicHeader">
     <h3 id="clinicHeading">Initial Occupational Therapy Evaluation</h3>
     </header>
-<form method="post" th:action="@{/clinic/complete}" th:object="${clinicForm}" modelAttribute = "clinicForm">
+<form action="#" th:action="@{clinic/complete}" th:object="${clinicForm}" method="post" >
+<!--    action="#" th:action="@{clinic/complete}" th:object="${clinicForm}"-->
     <div class="sideBySideTables">
         <div class="child">
             <table class="table table-striped">
                 <tr>
                     <td>Date of Eval:</td>
-                    <td><input type="date" value="" th:field="*{dateOfEval}"></td>
+                    <td><input type="date" th:field="*{dateOfEval}" ></td>
                 </tr>
                 <tr>
                     <td>Patient Name:</td>
-                    <td><input type="text" value="" th:field="*{patientName}"></td>
+                    <td><input type="text" th:field="*{patientName}"></td>
                 </tr>
                 <tr>
                     <td>Address:</td>
-                    <td><input type="text" value="" th:field="*{address}"></td>
+                    <td><input type="text"  th:field="*{address}"></td>
                 </tr>
                 <tr>
                     <td>Parent/Guardian:</td>
-                    <td><input type="text" value="" th:field="*{parentName}"></td>
+                    <td><input type="text" th:field="*{parentName}"></td>
                 </tr>
                 <tr>
                     <td>Diagnosis:</td>
-                    <td><input type="text" value="" th:field="*{diagnosis}"></td>
+                    <td><input type="text"  th:field="*{diagnosis}"></td>
                 </tr>
                 <tr>
                     <td>Therapist:</td>
@@ -45,7 +46,7 @@
             <table class="table table-striped">
                 <tr>
                     <td>DOB:</td>
-                    <td><input type="date" value="" th:field="*{DOB}"></td>
+                    <td><input type="date"  th:field="*{DOB}"></td>
                 </tr>
                 <tr>
                     <td>Phone:</td>
@@ -53,7 +54,7 @@
                 </tr>
                 <tr>
                     <td>Physician:</td>
-                    <td><input type="text" value="" th:field="*{physicianName}"></td>
+                    <td><input type="text" th:field="*{physicianName}"></td>
                 </tr>
                 <tr>
                     <td>Payer:</td>
@@ -76,7 +77,7 @@
 </div>
     <div class="sideBySideTables">
             <div class="child2">
-            <textarea th:replace="fragments :: textArea" th:field="*{referral}"></textarea>
+                <textarea th:field="*{referral}" id="textArea" class="form-control" rows="3"></textarea>
             </div><br>
     </div>
 <div class="sectionHeaders">
@@ -84,7 +85,7 @@
 </div>
     <div class="sideBySideTables">
         <div class="child2">
-            <textarea th:replace="fragments :: textArea" th:field="*{medicalHistory}"></textarea>
+            <textarea th:field="*{medicalHistory}" id="textArea" class="form-control" rows="3"></textarea>            </div><br>
         </div>
     </div>
 <div class="sectionHeaders">
@@ -96,19 +97,85 @@
             <tr>
                 <td>Assessment Method:</td>
                 <td>
-                    <div th:insert="fragments :: selectAllThatApply(${assessmentMethod})" id="checkBoxes" th:field="*{assessmentMethod}"></div>
+                    <ul>
+                        <li>
+                            <input type="checkbox" th:field="*{assessmentMethod}"
+                             value="Observation"id="observation">
+                            <label for="observation">Observation</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{assessmentMethod}"
+                                value="Interview"    id="interview">
+                            <label for="interview">Interview</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{assessmentMethod}"
+                                value="Standardized Test"  id="standard">
+                            <label for="standard">Standardized Test</label>
+                        </li>
+                    </ul>
+                        <br>
                 </td>
             </tr>
             <tr>
                 <td>Behavioral Observations:</td>
                 <td>
-                    <div th:insert="fragments :: selectAllThatApply(${behaviorObservations})" id="checkBoxes" th:field="*{behaviorObservations}"></div>
+                    <ul>
+                        <li>
+                            <input type="checkbox" th:field="*{behaviorObservations}"
+                                   value="Option One" id="optionOne">
+                            <label for="optionOne">Option One</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{behaviorObservations}"
+                                   value="Option Two"    id="optionTwo">
+                            <label for="optionTwo">Option Two</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{behaviorObservations}"
+                                   value="Option Three"  id="optionThree">
+                            <label for="optionThree">Option Three</label>
+                        </li>
+                    </ul>
+                    <br>
                 </td>
             </tr>
             <tr>
                 <td>Fine Motor Skills:</td>
                 <td>
-                    <div th:insert="fragments :: selectAllThatApply(${fineMotor})" id="checkBoxes" th:field="*{fineMotor}"></div>
+                    <ul>
+                        <li>
+                            <input type="checkbox" th:field="*{fineMotor}"
+                                   value="Raking" id="raking">
+                            <label for="raking">Raking</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{fineMotor}"
+                                   value="Pincer"    id="Pincer">
+                            <label for="Pincer">Pincer</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{fineMotor}"
+                                   value="Grasping"  id="Grasping">
+                            <label for="Grasping">Grasping</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{fineMotor}"
+                                   value="Whole hand"  id="wholeHand">
+                            <label for="wholeHand">Whole hand</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{fineMotor}"
+                                   value="Uses a fisted grasp"  id="fisted">
+                            <label for="fisted">Uses a fisted grasp</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{fineMotor}"
+                                   value="Grasps writing tool with all fingertips on tool"  id="allFingertips">
+                            <label for="allFingertips">Grasps writing tool with all fingertips on tool</label>
+                        </li>
+                    </ul>
+                    <br>
                 </td>
             </tr>
         </table>
@@ -118,25 +185,86 @@
             <tr>
                 <td>Communication Status:</td>
                 <td>
-                    <div th:insert="fragments :: dropDownMenu(${communicationLevel})"  th:field="*{communicationLevel}"></div>
+                    <ul>
+                        <li>
+                            <input type="checkbox" th:field="*{communicationLevel}"
+                                   value="Option One" id="optionOne">
+                            <label for="optionOne">Option One</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{communicationLevel}"
+                                   value="Option Two"    id="optionTwo">
+                            <label for="optionTwo">Option Two</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{communicationLevel}"
+                                   value="Option Three"  id="optionThree">
+                            <label for="optionThree">Option Three</label>
+                        </li>
+                    </ul>
+                    <br>
                 </td>
             </tr>
             <tr>
                 <td>Education Level:</td>
                 <td>
-                    <div th:insert="fragments :: dropDownMenu(${educationLevel})"  th:field="*{educationLevel}"></div>
+                    <select th:field="*{frequencyOfOT}">
+                        <option value="Less Than Elementary">Less Than Elementary</option>
+                        <option value="Elementary">Elementary</option>
+                        <option value="Middle">Middle</option>
+                        <option value="Some High School">Some High School</option>
+                        <option value="High School Diploma">High School Diploma</option>
+                        <option value="Some College">Some College</option>
+                        <option value="Associates">Associates</option>
+                        <option value="Bachelors">Bachelors</option>
+                        <option value="Graduate or above">Graduate or above</option>
+                    </select>
                 </td>
             </tr>
             <tr>
                 <td>Strength/Range of Motion:</td>
                 <td>
-                    <div th:insert="fragments :: dropDownMenu(${strengthAndRangeOfMotion})"  th:field="*{strengthAndRangeOfMotion}"></div>
+                    <ul>
+                        <li>
+                            <input type="checkbox" th:field="*{strengthAndRangeOfMotion}"
+                                   value="Option One" id="optionOne">
+                            <label for="optionOne">Option One</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{strengthAndRangeOfMotion}"
+                                   value="Option Two"    id="optionTwo">
+                            <label for="optionTwo">Option Two</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{strengthAndRangeOfMotion}"
+                                   value="Option Three"  id="optionThree">
+                            <label for="optionThree">Option Three</label>
+                        </li>
+                    </ul>
+                    <br>
                 </td>
             </tr>
             <tr>
                  <td>Activities of Daily Living:</td>
                 <td>
-                    <div th:insert="fragments :: selectAllThatApply(${activitiesOfDailyLiving})" id="checkBoxes" th:field="*{activitiesOfDailyLiving}"></div>
+                    <ul>
+                        <li>
+                            <input type="checkbox" th:field="*{activitiesOfDailyLiving}"
+                                   value="Option One" id="optionOne">
+                            <label for="optionOne">Option One</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{activitiesOfDailyLiving}"
+                                   value="Option Two"    id="optionTwo">
+                            <label for="optionTwo">Option Two</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" th:field="*{activitiesOfDailyLiving}"
+                                   value="Option Three"  id="optionThree">
+                            <label for="optionThree">Option Three</label>
+                        </li>
+                    </ul>
+                    <br>
                 </td>
             </tr>
         </table>
@@ -150,38 +278,80 @@
     <table class="table table-striped">
         <tr>
             <td>Fear Paralysis Reflex</td>
-            <td th:insert="fragments :: present" th:field="*{fearParalysisPresent}" ></td>
-            <td th:insert="fragments :: integrated" th:field="*{fearParalysisIntegrated}"></td>
+            <td >
+                <input type="checkbox" id="present" th:field="*{fearParalysisPresent}" th:checked="${clinicForm.fearParalysisPresent}" >
+                <label for="present" >Present</label>
+            </td>
+            <td >
+                <input type="checkbox" id="integrated" th:field="*{fearParalysisIntegrated}" th:checked="${clinicForm.fearParalysisIntegrated}">
+                <label for="integrated" >Integrated</label>
+            </td>
         </tr>
         <tr>
             <td>Moro Reflex</td>
-            <td th:insert="fragments :: present" th:field="*{moroPresent}"></td>
-            <td th:insert="fragments :: integrated" th:field="*{moroIntegrated}"></td>
+            <td >
+                <input type="checkbox" id="present" th:field="*{moroPresent}" th:checked="${clinicForm.moroPresent}" >
+                <label for="present" >Present</label>
+            </td>
+            <td >
+                <input type="checkbox" id="integrated" th:field="*{moroIntegrated}" th:checked="${clinicForm.moroIntegrated}">
+                <label for="integrated" >Integrated</label>
+            </td>
         </tr>
         <tr>
             <td>Asymmetrical Tonic Neck Reflex (ATNR)</td>
-            <td th:insert="fragments :: present" th:field="*{atnrPresent}"></td>
-            <td th:insert="fragments :: integrated" th:field="*{atnrIntegrated}"></td>
+            <td >
+                <input type="checkbox" id="present" th:field="*{atnrPresent}" th:checked="${clinicForm.atnrPresent}" >
+                <label for="present" >Present</label>
+            </td>
+            <td >
+                <input type="checkbox" id="integrated" th:field="*{atnrIntegrated}" th:checked="${clinicForm.atnrIntegrated}">
+                <label for="integrated" >Integrated</label>
+            </td>
         </tr>
         <tr>
             <td>Symmetrical Tonic Neck Reflex (STNR)</td>
-            <td th:insert="fragments :: present" th:field="*{stnrPresent}"></td>
-            <td th:insert="fragments :: integrated" th:field="*{stnrIntegrated}"></td>
+            <td >
+                <input type="checkbox" id="present" th:field="*{stnrPresent}" th:checked="${clinicForm.stnrPresent}" >
+                <label for="present" >Present</label>
+            </td>
+            <td >
+                <input type="checkbox" id="integrated" th:field="*{stnrIntegrated}" th:checked="${clinicForm.stnrIntegrated}">
+                <label for="integrated" >Integrated</label>
+            </td>
         </tr>
         <tr>
             <td>Tonic Neck Reflex</td>
-            <td th:insert="fragments :: present" th:field="*{tlrPresent}"></td>
-            <td th:insert="fragments :: integrated" th:field="*{tlrIntegrated}"></td>
+            <td >
+                <input type="checkbox" id="present" th:field="*{tlrPresent}" th:checked="${clinicForm.tlrPresent}" >
+                <label for="present" >Present</label>
+            </td>
+            <td >
+                <input type="checkbox" id="integrated" th:field="*{tlrIntegrated}" th:checked="${clinicForm.tlrIntegrated}">
+                <label for="integrated" >Integrated</label>
+            </td>
         </tr>
         <tr>
             <td>Spinal Galant Reflex</td>
-            <td th:insert="fragments :: present" th:field="*{spinalGalantPresent}"></td>
-            <td th:insert="fragments :: integrated" th:field="*{spinalGalantIntegrated}"></td>
+            <td >
+                <input type="checkbox" id="present" th:field="*{spinalGalantPresent}" th:checked="${clinicForm.spinalGalantPresent}" >
+                <label for="present" >Present</label>
+            </td>
+            <td >
+                <input type="checkbox" id="integrated" th:field="*{spinalGalantIntegrated}" th:checked="${clinicForm.spinalGalantIntegrated}">
+                <label for="integrated" >Integrated</label>
+            </td>
         </tr>
         <tr>
             <td>Palmar Reflex</td>
-            <td th:insert="fragments :: present" th:field="*{palmarPresent}"></td>
-            <td th:insert="fragments :: integrated" th:field="*{palmarIntegrated}"></td>
+            <td >
+                <input type="checkbox" id="present" th:field="*{palmarPresent}" th:checked="${clinicForm.palmarPresent}" >
+                <label for="present" >Present</label>
+            </td>
+            <td >
+                <input type="checkbox" id="integrated" th:field="*{palmarIntegrated}" th:checked="${clinicForm.palmarIntegrated}">
+                <label for="integrated" >Integrated</label>
+            </td>
         </tr>
     </table>
 </div>
@@ -194,19 +364,19 @@
     <div class="child2">
 
         <h6 id="visualTracking">Visual Tracking:</h6>
-        <textarea th:replace="fragments :: textArea" th:field="*{visualTracking}" id="childSensoryTextAreas"></textarea>
+        <textarea th:field="*{visualTracking}" id="textArea" class="form-control" rows="3"></textarea>
     </div><br>
 </div>
 <div class="sideBySideTables">
     <div class="child2">
         <h6 id="visualSaccades">Visual Saccades:</h6>
-        <textarea th:replace="fragments :: textArea" th:field="8{visualSaccades}" id="childSensoryTextAreas"></textarea>
+        <textarea th:field="*{visualSaccades}" id="textArea" class="form-control" rows="3"></textarea>
     </div>
 </div>
 <div class="sideBySideTables">
     <div class="child2">
         <h6 id="convergenceDivergence">Convergence/Divergence:</h6>
-        <textarea th:replace="fragments :: textArea" th:field="*{convergenceDivergence}" id="childSensoryTextAreas"></textarea>
+        <textarea th:field="*{convergenceDivergence}" id="textArea" class="form-control" rows="3"></textarea>
     </div>
 </div>
 <div class="sectionHeaders">
@@ -218,7 +388,13 @@
         <tr>
             <td>Frequency of OT:</td>
             <td>
-                <div th:insert="fragments :: dropDownMenu(${frequencyOfOT})"  th:field="*{frequencyOfOT}"></div>
+                <select th:field="*{frequencyOfOT}">
+                    <option value="Twice a week">Twice a week</option>
+                    <option value="Once a week">Once a week</option>
+                    <option value="Every other week">Every other week</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="As needed">As needed</option>
+                </select>
             </td>
         </tr>
         <tr>
@@ -274,10 +450,10 @@
 </div>
     <div class="form-group"></div>
     <input type="submit" value="Submit" class="btn btn-success">
-    </div>
+
     <div class="form-group"></div>
     <input type="reset" value="Reset" class="btn btn-success">
-    </div>
+
 </form>
 </body>
 </html>

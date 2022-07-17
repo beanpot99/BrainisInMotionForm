@@ -6,13 +6,14 @@
 <header id="clinicHeader">
     <h3 id="clinicHeading">Initial Occupational Therapy Evaluation</h3>
 </header>
+<fieldset disabled="disabled">
     <div class="sideBySideTables">
         <div class="child">
             <table class="table table-striped">
                 <tr>
                     <td>Date of Eval:</td>
                     <td>
-                        <p th:text="${clinicForm.dateOfEval}"></p>
+                        <p th:text="${clinicForm.dateOfEval}" ></p>
                     </td>
                 </tr>
                 <tr>
@@ -86,7 +87,7 @@
             <table class="table table-striped">
                 <tr>
                     <td>Assessment Method:</td>
-                    <td th:text="${clinicForm.assessmentMethod}"</td>
+                    <td th:text="${clinicForm.assessmentMethod}"></td>
                 </tr>
                 <tr>
                     <td>Behavioral Observations:</td>
@@ -94,7 +95,7 @@
                 </tr>
                 <tr>
                     <td>Fine Motor Skills:</td>
-                    <td th:field="${clinicForm.fineMotor}"></td>
+                    <td th:text="${clinicForm.fineMotor}"></td>
                 </tr>
             </table>
         </div>
@@ -127,38 +128,66 @@
             <table class="table table-striped">
                 <tr>
                     <td>Fear Paralysis Reflex</td>
-                    <td th:insert="fragments :: present" th:field="${fearParalysisPresent}" ></td>
-                    <td th:insert="fragments :: integrated" th:field="${fearParalysisIntegrated}"></td>
+                    <td  th:if="${clinicForm.fearParalysisPresent}">
+                        <p>Present</p>
+                    </td>
+                    <td th:if="${clinicForm.fearParalysisIntegrated}">
+                        <p>Integrated</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Moro Reflex</td>
-                    <td th:insert="fragments :: present" th:field="${moroPresent}"></td>
-                    <td th:insert="fragments :: integrated" th:field="${moroIntegrated}"></td>
+                    <td  th:if="${clinicForm.moroPresent}">
+                        <p>Present</p>
+                    </td>
+                    <td th:if="${clinicForm.moroIntegrated}">
+                        <p>Integrated</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Asymmetrical Tonic Neck Reflex (ATNR)</td>
-                    <td th:insert="fragments :: present" th:field="${atnrPresent}"></td>
-                    <td th:insert="fragments :: integrated" th:field="${atnrIntegrated}"></td>
+                    <td  th:if="${clinicForm.atnrPresent}">
+                        <p>Present</p>
+                    </td>
+                    <td th:if="${clinicForm.atnrIntegrated}">
+                        <p>Integrated</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Symmetrical Tonic Neck Reflex (STNR)</td>
-                    <td th:insert="fragments :: present" th:field="${stnrPresent}"></td>
-                    <td th:insert="fragments :: integrated" th:field="${stnrIntegrated}"></td>
+                    <td  th:if="${clinicForm.stnrPresent}">
+                        <p>Present</p>
+                    </td>
+                    <td th:if="${clinicForm.stnrIntegrated}">
+                        <p>Integrated</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Tonic Neck Reflex</td>
-                    <td th:insert="fragments :: present" th:field="${tlrPresent}"></td>
-                    <td th:insert="fragments :: integrated" th:field="${tlrIntegrated}"></td>
+                    <td  th:if="${clinicForm.tlrPresent}">
+                        <p>Present</p>
+                    </td>
+                    <td th:if="${clinicForm.tlrIntegrated}">
+                        <p>Integrated</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Spinal Galant Reflex</td>
-                    <td th:insert="fragments :: present" th:field="${spinalGalantPresent}"></td>
-                    <td th:insert="fragments :: integrated" th:field="${spinalGalantIntegrated}"></td>
+                    <td  th:if="${clinicForm.spinalGalantPresent}">
+                        <p>Present</p>
+                    </td>
+                    <td th:if="${clinicForm.spinalGalantIntegrated}">
+                        <p>Integrated</p>
+                    </td>
                 </tr>
                 <tr>
                     <td>Palmar Reflex</td>
-                    <td th:insert="fragments :: present" th:field="${palmarPresent}"></td>
-                    <td th:insert="fragments :: integrated" th:field="${palmarIntegrated}"></td>
+                    <td  th:if="${clinicForm.palmarPresent}">
+                        <p>Present</p>
+                    </td>
+                    <td th:if="${clinicForm.palmarIntegrated}">
+                        <p>Integrated</p>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -244,6 +273,6 @@
     <div class="form-group"></div>
     <input type="submit" value="Submit" class="btn btn-success">
     </div>
-</form>
+</fieldset>
 </body>
 </html>

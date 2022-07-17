@@ -1,11 +1,9 @@
 package com.brainsInMotion.brainsinmotionforms.models;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import jdk.jfr.Enabled;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
 import javax.validation.constraints.Size;
@@ -13,6 +11,7 @@ import javax.validation.constraints.Size;
 
 
 @Entity
+@Table(name="clinic_form")
 public class ClinicForm {
 
 
@@ -21,51 +20,51 @@ public class ClinicForm {
     @GeneratedValue
     private int id;
 
-    @NotNull
+
     private String dateOfEval;
-    @NotNull
+
     @Size(max=30, message="Max characters in field 30")
     private String patientName;
-    @NotNull
+
     @Size(max=50, message="Max characters in field 50")
     private String address;
-    @NotNull
+
     @Size(max=30, message="Max characters in field 30")
     private String parentName;
-    @NotNull
+
     @Size(max=50, message="Max characters in field 50")
     private String diagnosis;
-    @NotNull
+
     private String therapistChoice;
-    @NotNull
+
     private String DOB;
-    @NotNull
+
     @Size(max=11)
     private String clientPhone;
-    @NotNull
+
     @Size(max=30, message="Max characters in field 30")
     private String physicianName;
-    @NotNull
+
     private String payer;
-    @NotNull
+
     @Size(max=100, message="Max characters in field 100")
     private String referral;
-    @NotNull
+
     @Size(max=150, message="Max characters in field 150")
     private String medicalHistory;
-    @NotNull
+
     private String assessmentMethod;
-    @NotNull
+
     private String behaviorObservations;
-    @NotNull
+
     private String fineMotor;
-    @NotNull
+
     private String communicationLevel;
-    @NotNull
+
     private String educationLevel;
-    @NotNull
+
     private String strengthAndRangeOfMotion;
-    @NotNull
+
     private String activitiesOfDailyLiving;
 
     private Boolean fearParalysisPresent;
@@ -84,33 +83,34 @@ public class ClinicForm {
     private Boolean spinalGalantIntegrated;
     private Boolean palmarPresent;
     private Boolean palmarIntegrated;
-    @NotNull
+
     @Size(max=50)
     private String visualTracking;
-    @NotNull
+
     @Size(max=50)
     private String visualSaccades;
-    @NotNull
+
     @Size(max=50)
     private String convergenceDivergence;
-    @NotNull
+
     private String frequencyOfOT;
-    @NotNull
+
     @Size(max=50)
     private String goalOne;
-    @NotNull
+
     @Size(max=50)
     private String goalTwo;
-    @NotNull
+
     @Size(max=50)
     private String goalThree;
-    @NotNull
+
     @Size(max=50)
     private String goalFour;
-    @NotNull
+
     private String durationOfOT;
-    @NotNull
+
     private String therapist;
+    public ClinicForm(){};
 
     public ClinicForm(String dateOfEval, String patientName, String address, String parentName, String diagnosis, String therapistChoice, String DOB, String clientPhone, String physicianName, String payer, String referral, String medicalHistory, String assessmentMethod, String behaviorObservations, String fineMotor, String communicationLevel, String educationLevel, String strengthAndRangeOfMotion, String activitiesOfDailyLiving, Boolean fearParalysisPresent, Boolean fearParalysisIntegrated, Boolean moroPresent, Boolean moroIntegrated, Boolean atnrPresent, Boolean atnrIntegrated, Boolean stnrPresent, Boolean stnrIntegrated, Boolean tlrPresent, Boolean tlrIntegrated, Boolean spinalGalantPresent, Boolean spinalGalantIntegrated, Boolean palmarPresent, Boolean palmarIntegrated, String visualTracking, String visualSaccades, String convergenceDivergence, String frequencyOfOT, String goalOne, String goalTwo, String goalThree, String goalFour, String durationOfOT, String therapist) {
         this.dateOfEval = dateOfEval;
@@ -157,7 +157,7 @@ public class ClinicForm {
         this.goalFour=goalFour;
         this.therapist=therapist;
     }
-    public ClinicForm(){}
+
     public String getDurationOfOT() {
         return durationOfOT;
     }
@@ -502,6 +502,10 @@ public class ClinicForm {
     public void setTherapist(String therapist) {
         this.therapist = therapist;
     }
+
+
+
+
 
     @Override
     public boolean equals(Object o) {

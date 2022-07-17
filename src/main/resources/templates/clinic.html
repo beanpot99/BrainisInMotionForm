@@ -208,7 +208,7 @@
             <tr>
                 <td>Education Level:</td>
                 <td>
-                    <select th:field="*{frequencyOfOT}">
+                    <select th:field="*{educationLevel}">
                         <option value="Less Than Elementary">Less Than Elementary</option>
                         <option value="Elementary">Elementary</option>
                         <option value="Middle">Middle</option>
@@ -417,19 +417,27 @@
         <table class="table table-striped">
             <tr>
                 <td>1.</td>
-                <td th:replace="fragments ::  freeText" th:field="*{goalOne}"></td>
+                <td>
+                    <input type="text" style="width:100%" th:field="*{goalOne}">
+                </td>
             </tr>
             <tr>
                 <td>2.</td>
-                <td th:replace="fragments ::  freeText" th:field="*{goalTwo}"></td>
+                <td>
+                    <input type="text" style="width:100%" th:field="*{goalTwo}">
+                </td>
             </tr>
             <tr>
                 <td>3.</td>
-                <td th:replace="fragments ::  freeText" th:field="*{goalThree}"></td>
+                <td>
+                    <input type="text" style="width:100%" th:field="*{goalThree}">
+                </td>
             </tr>
             <tr>
                 <td>4.</td>
-                <td th:replace="fragments ::  freeText" th:field="*{goalFour}"></td>
+                <td>
+                    <input type="text" style="width:100%" th:field="*{goalFour}">
+                </td>
             </tr>
         </table>
     </div>
